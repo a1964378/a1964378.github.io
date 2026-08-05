@@ -1,26 +1,215 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Caso de estudio de automatización operacional con Excel, VBA y Power Query."><meta name="theme-color" content="#0a0f16"><title>Sistema operacional en Excel y VBA — Josué González</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/css/styles.css"></head>
-<body data-title-es="Sistema operacional en Excel y VBA — Josué González" data-title-en="Operational Excel and VBA system — Josue Gonzalez">
-<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html">JG /</a><nav class="nav-links"><a href="../index.html#proyectos" data-i18n="nav.work">Proyectos</a><a href="../index.html#trayectoria" data-i18n="nav.path">Trayectoria</a><a href="../index.html#contacto" data-i18n="nav.contact">Contacto</a></nav><div class="lang" role="group" aria-label="Idioma"><button data-lang="es" aria-pressed="true">ES</button><button data-lang="en" aria-pressed="false">EN</button></div></div></header>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Caso de estudio real de una aplicación de gestión y búsqueda de cuidadores desarrollada en Excel VBA.">
+  <meta name="theme-color" content="#0a0f16">
+  <title>LHCSA Aide Manager — Josué González</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body data-title-es="LHCSA Aide Manager — Josué González" data-title-en="LHCSA Aide Manager — Josue Gonzalez">
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">JG /</a>
+    <nav class="nav-links">
+      <a href="../index.html#proyectos" data-i18n="nav.work">Proyectos</a>
+      <a href="../index.html#trayectoria" data-i18n="nav.path">Trayectoria</a>
+      <a href="../index.html#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma">
+      <button data-lang="es" aria-pressed="true">ES</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
 <main>
-<section class="case-hero"><div class="wrap"><a class="back-link" href="../index.html#proyectos">← <span data-i18n="case.back">Volver a proyectos</span></a><p class="eyebrow" data-i18n="case.eyebrow">Caso 03 · Automatización operacional</p><h1 data-i18n="case.title">Sistema operacional en Excel y VBA</h1><p class="case-summary" data-i18n="case.summary">Un conjunto de herramientas para dar visibilidad a un equipo de 17 personas, automatizar reportes recurrentes y centralizar la búsqueda de cuidadores mediante formularios y lógica VBA.</p><div class="case-meta"><span class="meta-pill">Excel</span><span class="meta-pill">VBA</span><span class="meta-pill">Power Query</span><span class="meta-pill">Macros</span><span class="meta-pill">Operations</span></div></div></section>
-<section><div class="wrap case-cover reveal"><div class="vba-ui" style="max-width:860px;width:100%"><div class="vba-title">Care Operations Management · Excel VBA Prototype</div><div class="vba-body" style="grid-template-columns:190px 1fr;min-height:390px"><div class="vba-side" style="padding:20px"><span class="active">Caregiver Search</span><span>New Caregiver</span><span>Incident Log</span><span>Daily Dashboard</span><span>Weekly Report</span></div><div class="vba-main" style="padding:28px"><h4 style="font-size:24px">Structured Caregiver Search</h4><div class="form-grid"><div class="fake-input" style="height:42px">Language</div><div class="fake-input" style="height:42px">Available day</div><div class="fake-input" style="height:42px">Shift</div><div class="fake-input" style="height:42px">Location</div><div class="fake-input wide" style="height:42px">Case conditions: pets · smokers · bedbound · children</div></div><div class="fake-table" style="margin-top:22px"><div class="fake-row head" style="font-size:10px"><span>Caregiver</span><span>Status</span><span>Match</span></div><div class="fake-row" style="font-size:10px"><span>Record 0041</span><span>Available</span><span>92%</span></div><div class="fake-row" style="font-size:10px"><span>Record 0183</span><span>Available</span><span>86%</span></div><div class="fake-row" style="font-size:10px"><span>Record 0097</span><span>Review</span><span>78%</span></div></div></div></div></div></div></section>
-<div class="wrap case-layout">
-<aside class="case-nav"><a href="#contexto" data-i18n="nav.context">Contexto</a><a href="#problema" data-i18n="nav.problem">Problema</a><a href="#dashboard" data-i18n="nav.dashboard">Dashboard</a><a href="#automatizacion" data-i18n="nav.automation">Automatización</a><a href="#base" data-i18n="nav.database">Base de datos</a><a href="#resultados" data-i18n="nav.results">Resultados</a></aside>
-<article class="case-content">
-<section id="contexto"><h2 data-i18n="context.title">Contexto</h2><p class="lead-card" data-i18n="context.lead">Una operación de staffing de salud procesaba alrededor de 300 registros diarios de pacientes y cuidadores. El equipo necesitaba precisión para facturación, pero trabajaba con reportes manuales y registros dispersos.</p><p data-i18n="context.p">La solución evolucionó en tres frentes: visibilidad del desempeño, automatización del flujo de reportes y una herramienta de consulta para Care Operations.</p></section>
-<section id="problema"><h2 data-i18n="problem.title">El problema operacional</h2><ul><li data-i18n="problem.1">Un equipo de 17 personas no podía ver fácilmente volumen, productividad o errores.</li><li data-i18n="problem.2">Los reportes diarios y semanales requerían más de una hora manual por día.</li><li data-i18n="problem.3">La información de cuidadores estaba distribuida en hojas y registros difíciles de consultar.</li><li data-i18n="problem.4">La entrada directa en celdas aumentaba el riesgo de errores y formatos inconsistentes.</li></ul></section>
-<section id="dashboard"><h2 data-i18n="dashboard.title">Dashboard operacional</h2><p data-i18n="dashboard.p">Se diseñó un dashboard en Excel con tablas dinámicas, fórmulas avanzadas y segmentación por fecha, analista, tipo de registro y resultado.</p><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0"><div class="outcome"><b>300</b><span data-i18n="dashboard.1">registros diarios</span></div><div class="outcome"><b>17</b><span data-i18n="dashboard.2">miembros del equipo</span></div><div class="outcome"><b>Error %</b><span data-i18n="dashboard.3">control de calidad</span></div><div class="outcome"><b>Daily/Weekly</b><span data-i18n="dashboard.4">lectura por periodo</span></div></div><p data-i18n="dashboard.p2">El objetivo no era solo medir personas, sino encontrar cuellos de botella, equilibrar cargas y detectar categorías con mayor tasa de corrección.</p></section>
-<section id="automatizacion"><h2 data-i18n="automation.title">Automatización del reporte</h2><p data-i18n="automation.p">Macros y Power Query reemplazaron una secuencia manual de importación, limpieza, actualización de tablas y preparación del reporte.</p><div class="architecture"><div class="arch-box"><b>CSV / EXPORTS</b><span>Daily operational files<br>system exports</span></div><div class="arch-arrow">→</div><div class="arch-box"><b>POWER QUERY</b><span>Clean columns<br>standardize values<br>append history</span></div><div class="arch-arrow">→</div><div class="arch-box"><b>VBA + DASHBOARD</b><span>Refresh sequence<br>quality checks<br>distribution output</span></div></div><div class="code"><div class="code-head">VBA · illustrative refresh workflow</div><pre><span class="kw">Sub</span> RefreshOperationalReport()
-    Application.ScreenUpdating = False
-    ThisWorkbook.RefreshAll
-    <span class="fn">Call</span> ValidateRequiredFields
-    <span class="fn">Call</span> UpdateDashboardDate
-    <span class="fn">Call</span> ExportWeeklySummary
-    Application.ScreenUpdating = True
-<span class="kw">End Sub</span></pre></div></section>
-<section id="base"><h2 data-i18n="database.title">Prototipo de base de datos en VBA</h2><p data-i18n="database.p1">Care Operations necesitaba encontrar cuidadores según disponibilidad, idioma y condiciones específicas del caso. El prototipo convirtió una hoja suelta en una interfaz controlada.</p><ul><li data-i18n="database.1">Formulario de alta con validación de campos.</li><li data-i18n="database.2">Búsqueda por día, idioma, ubicación y condiciones del paciente.</li><li data-i18n="database.3">Registro de incidentes: Late, Call Out y NCNS.</li><li data-i18n="database.4">Selector de fecha y actualización de registros sin editar directamente las celdas.</li></ul><p data-i18n="database.p2">La propuesta fue presentada a gerencia como una forma de centralizar información y reducir el tiempo de consulta para aproximadamente 10 usuarios.</p></section>
-<section id="resultados"><h2 data-i18n="results.title">Resultado</h2><div class="outcome-grid"><div class="outcome"><b>+30%</b><span data-i18n="results.1">mejora reportada en visibilidad y eficiencia del proceso</span></div><div class="outcome"><b>~10h</b><span data-i18n="results.2">semanales recuperadas mediante automatización</span></div><div class="outcome"><b>~10</b><span data-i18n="results.3">usuarios previstos para la herramienta de consulta</span></div></div><p class="confidential" data-i18n="results.note">La interfaz mostrada es una recreación. No contiene datos de pacientes, cuidadores ni información protegida.</p></section>
-<a class="next-case" href="financial-dashboard.html"><div><small data-i18n="next.label">Volver al primer caso</small><b data-i18n="next.title">Dashboard financiero global</b></div><span>↺</span></a>
-</article></div>
-</main><footer><div class="wrap footer-row"><span data-i18n="footer">Hecho con HTML, CSS y JavaScript · Datos de demostración sintéticos</span><a data-cv-link href="../cv/Josue_Gonzalez_CV_ES.pdf" download>CV ↓</a></div></footer>
-<script>window.PAGE_I18N={es:{'case.back':'Volver a proyectos','case.eyebrow':'Caso 03 · Automatización operacional','case.title':'Sistema operacional en Excel y VBA','case.summary':'Un conjunto de herramientas para dar visibilidad a un equipo de 17 personas, automatizar reportes recurrentes y centralizar la búsqueda de cuidadores mediante formularios y lógica VBA.','nav.context':'Contexto','nav.problem':'Problema','nav.dashboard':'Dashboard','nav.automation':'Automatización','nav.database':'Base de datos','nav.results':'Resultados','context.title':'Contexto','context.lead':'Una operación de staffing de salud procesaba alrededor de 300 registros diarios de pacientes y cuidadores. El equipo necesitaba precisión para facturación, pero trabajaba con reportes manuales y registros dispersos.','context.p':'La solución evolucionó en tres frentes: visibilidad del desempeño, automatización del flujo de reportes y una herramienta de consulta para Care Operations.','problem.title':'El problema operacional','problem.1':'Un equipo de 17 personas no podía ver fácilmente volumen, productividad o errores.','problem.2':'Los reportes diarios y semanales requerían más de una hora manual por día.','problem.3':'La información de cuidadores estaba distribuida en hojas y registros difíciles de consultar.','problem.4':'La entrada directa en celdas aumentaba el riesgo de errores y formatos inconsistentes.','dashboard.title':'Dashboard operacional','dashboard.p':'Se diseñó un dashboard en Excel con tablas dinámicas, fórmulas avanzadas y segmentación por fecha, analista, tipo de registro y resultado.','dashboard.1':'registros diarios','dashboard.2':'miembros del equipo','dashboard.3':'control de calidad','dashboard.4':'lectura por periodo','dashboard.p2':'El objetivo no era solo medir personas, sino encontrar cuellos de botella, equilibrar cargas y detectar categorías con mayor tasa de corrección.','automation.title':'Automatización del reporte','automation.p':'Macros y Power Query reemplazaron una secuencia manual de importación, limpieza, actualización de tablas y preparación del reporte.','database.title':'Prototipo de base de datos en VBA','database.p1':'Care Operations necesitaba encontrar cuidadores según disponibilidad, idioma y condiciones específicas del caso. El prototipo convirtió una hoja suelta en una interfaz controlada.','database.1':'Formulario de alta con validación de campos.','database.2':'Búsqueda por día, idioma, ubicación y condiciones del paciente.','database.3':'Registro de incidentes: Late, Call Out y NCNS.','database.4':'Selector de fecha y actualización de registros sin editar directamente las celdas.','database.p2':'La propuesta fue presentada a gerencia como una forma de centralizar información y reducir el tiempo de consulta para aproximadamente 10 usuarios.','results.title':'Resultado','results.1':'mejora reportada en visibilidad y eficiencia del proceso','results.2':'semanales recuperadas mediante automatización','results.3':'usuarios previstos para la herramienta de consulta','results.note':'La interfaz mostrada es una recreación. No contiene datos de pacientes, cuidadores ni información protegida.','next.label':'Volver al primer caso','next.title':'Dashboard financiero global'},en:{'case.back':'Back to projects','case.eyebrow':'Case 03 · Operational automation','case.title':'Operational Excel and VBA system','case.summary':'A set of tools providing visibility to a 17-person team, automating recurring reporting and centralizing caregiver search through VBA forms and logic.','nav.context':'Context','nav.problem':'Problem','nav.dashboard':'Dashboard','nav.automation':'Automation','nav.database':'Database','nav.results':'Outcomes','context.title':'Context','context.lead':'A healthcare staffing operation processed around 300 patient and caregiver records per day. The team needed billing accuracy but relied on manual reports and scattered records.','context.p':'The solution evolved across three fronts: performance visibility, reporting-flow automation and a search tool for Care Operations.','problem.title':'The operational problem','problem.1':'A 17-person team could not easily see volume, productivity or errors.','problem.2':'Daily and weekly reports required more than one manual hour per day.','problem.3':'Caregiver information was distributed across sheets and difficult-to-search records.','problem.4':'Direct cell entry increased the risk of errors and inconsistent formats.','dashboard.title':'Operational dashboard','dashboard.p':'An Excel dashboard was designed with pivot tables, advanced formulas and segmentation by date, analyst, record type and outcome.','dashboard.1':'daily records','dashboard.2':'team members','dashboard.3':'quality control','dashboard.4':'period views','dashboard.p2':'The goal was not simply to measure people, but to identify bottlenecks, balance workload and detect categories with higher correction rates.','automation.title':'Report automation','automation.p':'Macros and Power Query replaced a manual sequence of importing, cleaning, refreshing tables and preparing the report.','database.title':'VBA database prototype','database.p1':'Care Operations needed to find caregivers based on availability, language and specific case conditions. The prototype turned a loose sheet into a controlled interface.','database.1':'Data-entry form with field validation.','database.2':'Search by day, language, location and patient conditions.','database.3':'Incident tracking for Late, Call Out and NCNS.','database.4':'Date picker and record updates without directly editing cells.','database.p2':'The proposal was presented to management as a way to centralize information and reduce lookup time for approximately 10 users.','results.title':'Outcome','results.1':'reported improvement in process visibility and efficiency','results.2':'recovered weekly through automation','results.3':'intended users for the search tool','results.note':'The interface shown is a recreation. It contains no patient, caregiver or protected information.','next.label':'Back to the first case','next.title':'Global financial dashboard'}};</script><script src="../assets/js/main.js"></script></body></html>
+  <section class="case-hero">
+    <div class="wrap">
+      <a class="back-link" href="../index.html#proyectos">← <span data-i18n="case.back">Volver a proyectos</span></a>
+      <p class="eyebrow" data-i18n="case.eyebrow">Caso 03 · Excel & VBA</p>
+      <h1 data-i18n="case.title">LHCSA Aide Manager</h1>
+      <p class="case-summary" data-i18n="case.summary">Prototipo funcional en Excel VBA para centralizar registros de cuidadores, aplicar filtros operativos, actualizar información y consultar incidentes desde una sola interfaz.</p>
+      <div class="case-meta">
+        <span class="meta-pill">Excel</span>
+        <span class="meta-pill">VBA</span>
+        <span class="meta-pill">UserForms</span>
+        <span class="meta-pill">Data Validation</span>
+        <span class="meta-pill">Operations</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap case-cover reveal">
+      <img class="case-screenshot" src="../assets/images/lhcsa-aide-manager.png" alt="Interfaz real de LHCSA Aide Manager desarrollada en Excel VBA">
+    </div>
+  </section>
+
+  <div class="wrap case-layout">
+    <aside class="case-nav">
+      <a href="#contexto" data-i18n="nav.context">Contexto</a>
+      <a href="#solucion" data-i18n="nav.solution">Solución</a>
+      <a href="#busqueda" data-i18n="nav.search">Búsqueda</a>
+      <a href="#modelo" data-i18n="nav.model">Modelo de datos</a>
+      <a href="#incidentes" data-i18n="nav.incidents">Incidentes</a>
+      <a href="#alcance" data-i18n="nav.scope">Alcance</a>
+    </aside>
+
+    <article class="case-content">
+      <section id="contexto">
+        <h2 data-i18n="context.title">Contexto</h2>
+        <p class="lead-card" data-i18n="context.lead">Encontrar un cuidador adecuado requiere combinar disponibilidad, idioma, ubicación, preferencias y condiciones específicas del caso. Hacerlo directamente sobre una hoja extensa vuelve la consulta lenta y aumenta la posibilidad de editar información por error.</p>
+        <p data-i18n="context.p">Construí este prototipo como una capa de aplicación sobre Excel: el usuario interactúa con un formulario controlado mientras VBA gestiona la consulta y el mantenimiento de los registros.</p>
+      </section>
+
+      <section id="solucion">
+        <h2 data-i18n="solution.title">La solución</h2>
+        <p data-i18n="solution.p">La solución final se organiza en tres componentes principales: una pantalla de entrada, una base de cuidadores y un registro de incidentes. El libro también conserva hojas de borrador con datos ficticios, lo que documenta la evolución desde la primera estructura hasta la interfaz final.</p>
+
+        <div class="architecture">
+          <div class="arch-box"><b>VBA USERFORM</b><span data-i18n="solution.arch1">Captura, filtros y acciones controladas</span></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box"><b>AIDE DATA BASE</b><span data-i18n="solution.arch2">21 campos operativos por cuidador</span></div>
+          <div class="arch-arrow">↔</div>
+          <div class="arch-box"><b>INCIDENTS REPORT</b><span data-i18n="solution.arch3">Historial relacionado mediante CG Code</span></div>
+        </div>
+
+        <div class="fact-grid">
+          <div class="fact"><b>21</b><span data-i18n="facts.1">campos en la estructura final de cuidadores</span></div>
+          <div class="fact"><b>4</b><span data-i18n="facts.2">acciones principales: buscar, guardar, actualizar y limpiar</span></div>
+          <div class="fact"><b>3</b><span data-i18n="facts.3">componentes finales: interfaz, base e incidentes</span></div>
+        </div>
+      </section>
+
+      <section id="busqueda">
+        <h2 data-i18n="search.title">Búsqueda multicriterio</h2>
+        <p data-i18n="search.p">El formulario permite combinar criterios sin que el usuario tenga que construir filtros manuales sobre la hoja. Los resultados se muestran en una lista y, al seleccionar un cuidador, el formulario puede recuperar su información y los incidentes vinculados.</p>
+        <ul>
+          <li data-i18n="search.1">Identificación por CG Code y nombre completo.</li>
+          <li data-i18n="search.2">Idiomas: inglés, español u otro.</li>
+          <li data-i18n="search.3">Disponibilidad para los siete días y estado Pending Placement o Assigned.</li>
+          <li data-i18n="search.4">Preferencias del caso: paciente encamado, niños, fumadores, mascotas y tipo de convivencia.</li>
+          <li data-i18n="search.5">Ubicación: Brooklyn, Bronx, Manhattan, Queens y Long Island.</li>
+        </ul>
+      </section>
+
+      <section id="modelo">
+        <h2 data-i18n="model.title">Modelo de datos</h2>
+        <p data-i18n="model.p">La base final separa identidad, idioma, disponibilidad, preferencias, notas y ubicación. El CG Code funciona como clave operativa para localizar registros y relacionar al cuidador con su historial de incidentes.</p>
+        <div class="fact-grid">
+          <div class="fact"><b>7</b><span data-i18n="model.1">días de disponibilidad modelados</span></div>
+          <div class="fact"><b>5</b><span data-i18n="model.2">ubicaciones seleccionables</span></div>
+          <div class="fact"><b>5</b><span data-i18n="model.3">condiciones y preferencias del caso</span></div>
+        </div>
+        <p class="prototype-note" data-i18n="model.note">El proyecto se presenta como prototipo funcional. Todos los nombres y registros mostrados son ficticios y no contienen información de pacientes ni PHI.</p>
+      </section>
+
+      <section id="incidentes">
+        <h2 data-i18n="incidents.title">Consulta de incidentes</h2>
+        <p data-i18n="incidents.p">El historial usa una estructura simple —CG Code, tipo y fecha— para que la interfaz pueda mostrar los incidentes asociados al cuidador seleccionado. Los datos de demostración incluyen NCNS, Late y Call Out.</p>
+        <div class="evidence-grid">
+          <div class="evidence-card">
+            <img src="../assets/images/lhcsa-incidents.png" alt="Registro ficticio de incidentes del prototipo">
+            <h3 data-i18n="incidents.card1">Registro estructurado</h3>
+            <p data-i18n="incidents.card1p">Cada evento queda vinculado al cuidador mediante su CG Code.</p>
+          </div>
+          <div class="evidence-card">
+            <h3 data-i18n="incidents.card2">Tipos demostrados</h3>
+            <p data-i18n="incidents.card2p">NCNS, llegadas tardías y cancelaciones de turno se consultan desde la misma pantalla, sin navegar entre hojas.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="alcance">
+        <h2 data-i18n="scope.title">Resultado y alcance</h2>
+        <p data-i18n="scope.p">El resultado es una prueba concreta de desarrollo orientado al usuario dentro de Excel: reemplaza la navegación manual por una interfaz, valida la entrada y concentra la búsqueda, actualización y consulta de incidentes en un flujo único.</p>
+        <div class="outcome-grid">
+          <div class="outcome"><b>UserForm</b><span data-i18n="scope.1">interfaz centralizada sobre una base de Excel</span></div>
+          <div class="outcome"><b>Multi-filter</b><span data-i18n="scope.2">búsqueda por disponibilidad, idioma, ubicación y condiciones</span></div>
+          <div class="outcome"><b>CRUD</b><span data-i18n="scope.3">registro, consulta y actualización sin editar celdas directamente</span></div>
+        </div>
+        <p class="confidential" data-i18n="scope.note">La captura corresponde al archivo real desarrollado por mí. Los registros utilizados para la demostración son dummies.</p>
+      </section>
+
+      <a class="next-case" href="financial-dashboard.html">
+        <div>
+          <small data-i18n="next.label">Volver al primer caso</small>
+          <b data-i18n="next.title">Dashboard financiero global</b>
+        </div>
+        <span>↺</span>
+      </a>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span data-i18n="footer">Hecho con HTML, CSS y JavaScript · Datos de demostración sintéticos</span>
+    <a data-cv-link href="../cv/Josue_Gonzalez_CV_ES.pdf" download>CV ↓</a>
+  </div>
+</footer>
+
+<script>
+window.PAGE_I18N={
+es:{
+  'case.back':'Volver a proyectos',
+  'case.eyebrow':'Caso 03 · Excel & VBA',
+  'case.title':'LHCSA Aide Manager',
+  'case.summary':'Prototipo funcional en Excel VBA para centralizar registros de cuidadores, aplicar filtros operativos, actualizar información y consultar incidentes desde una sola interfaz.',
+  'nav.context':'Contexto','nav.solution':'Solución','nav.search':'Búsqueda','nav.model':'Modelo de datos','nav.incidents':'Incidentes','nav.scope':'Alcance',
+  'context.title':'Contexto',
+  'context.lead':'Encontrar un cuidador adecuado requiere combinar disponibilidad, idioma, ubicación, preferencias y condiciones específicas del caso. Hacerlo directamente sobre una hoja extensa vuelve la consulta lenta y aumenta la posibilidad de editar información por error.',
+  'context.p':'Construí este prototipo como una capa de aplicación sobre Excel: el usuario interactúa con un formulario controlado mientras VBA gestiona la consulta y el mantenimiento de los registros.',
+  'solution.title':'La solución',
+  'solution.p':'La solución final se organiza en tres componentes principales: una pantalla de entrada, una base de cuidadores y un registro de incidentes. El libro también conserva hojas de borrador con datos ficticios, lo que documenta la evolución desde la primera estructura hasta la interfaz final.',
+  'solution.arch1':'Captura, filtros y acciones controladas','solution.arch2':'21 campos operativos por cuidador','solution.arch3':'Historial relacionado mediante CG Code',
+  'facts.1':'campos en la estructura final de cuidadores','facts.2':'acciones principales: buscar, guardar, actualizar y limpiar','facts.3':'componentes finales: interfaz, base e incidentes',
+  'search.title':'Búsqueda multicriterio',
+  'search.p':'El formulario permite combinar criterios sin que el usuario tenga que construir filtros manuales sobre la hoja. Los resultados se muestran en una lista y, al seleccionar un cuidador, el formulario puede recuperar su información y los incidentes vinculados.',
+  'search.1':'Identificación por CG Code y nombre completo.','search.2':'Idiomas: inglés, español u otro.','search.3':'Disponibilidad para los siete días y estado Pending Placement o Assigned.','search.4':'Preferencias del caso: paciente encamado, niños, fumadores, mascotas y tipo de convivencia.','search.5':'Ubicación: Brooklyn, Bronx, Manhattan, Queens y Long Island.',
+  'model.title':'Modelo de datos','model.p':'La base final separa identidad, idioma, disponibilidad, preferencias, notas y ubicación. El CG Code funciona como clave operativa para localizar registros y relacionar al cuidador con su historial de incidentes.',
+  'model.1':'días de disponibilidad modelados','model.2':'ubicaciones seleccionables','model.3':'condiciones y preferencias del caso',
+  'model.note':'El proyecto se presenta como prototipo funcional. Todos los nombres y registros mostrados son ficticios y no contienen información de pacientes ni PHI.',
+  'incidents.title':'Consulta de incidentes','incidents.p':'El historial usa una estructura simple —CG Code, tipo y fecha— para que la interfaz pueda mostrar los incidentes asociados al cuidador seleccionado. Los datos de demostración incluyen NCNS, Late y Call Out.',
+  'incidents.card1':'Registro estructurado','incidents.card1p':'Cada evento queda vinculado al cuidador mediante su CG Code.','incidents.card2':'Tipos demostrados','incidents.card2p':'NCNS, llegadas tardías y cancelaciones de turno se consultan desde la misma pantalla, sin navegar entre hojas.',
+  'scope.title':'Resultado y alcance','scope.p':'El resultado es una prueba concreta de desarrollo orientado al usuario dentro de Excel: reemplaza la navegación manual por una interfaz, valida la entrada y concentra la búsqueda, actualización y consulta de incidentes en un flujo único.',
+  'scope.1':'interfaz centralizada sobre una base de Excel','scope.2':'búsqueda por disponibilidad, idioma, ubicación y condiciones','scope.3':'registro, consulta y actualización sin editar celdas directamente',
+  'scope.note':'La captura corresponde al archivo real desarrollado por mí. Los registros utilizados para la demostración son dummies.',
+  'next.label':'Volver al primer caso','next.title':'Dashboard financiero global'
+},
+en:{
+  'case.back':'Back to projects',
+  'case.eyebrow':'Case 03 · Excel & VBA',
+  'case.title':'LHCSA Aide Manager',
+  'case.summary':'A functional Excel VBA prototype that centralizes caregiver records, applies operational filters, updates information and retrieves incidents through a single interface.',
+  'nav.context':'Context','nav.solution':'Solution','nav.search':'Search','nav.model':'Data model','nav.incidents':'Incidents','nav.scope':'Scope',
+  'context.title':'Context',
+  'context.lead':'Finding a suitable caregiver requires combining availability, language, location, preferences and case-specific conditions. Working directly in a long worksheet makes this lookup slower and increases the chance of accidental edits.',
+  'context.p':'I built this prototype as an application layer on top of Excel: the user works through a controlled form while VBA manages record lookup and maintenance.',
+  'solution.title':'The solution',
+  'solution.p':'The final solution is organized into three main components: an input screen, a caregiver database and an incident register. The workbook also retains draft sheets with dummy data, documenting its evolution from an early structure to the final interface.',
+  'solution.arch1':'Controlled input, filters and actions','solution.arch2':'21 operational fields per caregiver','solution.arch3':'History linked through CG Code',
+  'facts.1':'fields in the final caregiver structure','facts.2':'core actions: search, save, update and clear','facts.3':'final components: interface, database and incidents',
+  'search.title':'Multi-criteria search',
+  'search.p':'The form combines criteria without requiring the user to manually build worksheet filters. Results appear in a list and selecting a caregiver can retrieve both their information and linked incidents.',
+  'search.1':'Identification by CG Code and full name.','search.2':'Languages: English, Spanish or other.','search.3':'Availability for all seven days and Pending Placement or Assigned status.','search.4':'Case preferences: bedbound patient, children, smokers, pets and living arrangement.','search.5':'Location: Brooklyn, Bronx, Manhattan, Queens and Long Island.',
+  'model.title':'Data model','model.p':'The final database separates identity, language, availability, preferences, notes and location. CG Code acts as the operational key used to locate records and relate a caregiver to their incident history.',
+  'model.1':'availability days modeled','model.2':'selectable locations','model.3':'case conditions and preferences',
+  'model.note':'This project is presented as a functional prototype. Every displayed name and record is fictitious and contains no patient information or PHI.',
+  'incidents.title':'Incident lookup','incidents.p':'The history uses a simple structure —CG Code, type and date— allowing the interface to display incidents associated with the selected caregiver. The demo data includes NCNS, Late and Call Out.',
+  'incidents.card1':'Structured register','incidents.card1p':'Each event is linked to the caregiver through their CG Code.','incidents.card2':'Demonstrated types','incidents.card2p':'NCNS, late arrivals and call-outs can be reviewed from the same screen without navigating between worksheets.',
+  'scope.title':'Outcome and scope','scope.p':'The result is concrete evidence of user-oriented development inside Excel: it replaces manual worksheet navigation with an interface, validates input and brings lookup, updates and incident review into one flow.',
+  'scope.1':'centralized interface over an Excel database','scope.2':'search by availability, language, location and conditions','scope.3':'record creation, lookup and update without direct cell editing',
+  'scope.note':'The screenshot comes from the real file I developed. All records used in the demonstration are dummy data.',
+  'next.label':'Back to the first case','next.title':'Global financial dashboard'
+}
+};
+</script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
