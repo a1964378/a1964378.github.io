@@ -1,58 +1,58 @@
-# Portafolio de Josué González
+# Josué González — Business Intelligence & Data Analytics Portfolio
 
-Portafolio profesional bilingüe de **Business Intelligence y Data Analytics**, enfocado en soluciones de reportería financiera, automatización, modelado de datos y transformación de procesos.
+Professional bilingual portfolio focused on **Business Intelligence, financial analytics, data transformation, reporting automation, and operational solutions**.
 
-🔗 **Sitio publicado:** https://jgonzalez-bi.github.io/
+🔗 **Live portfolio:** https://jgonzalez-bi.github.io/
 
-## Sobre el portafolio
+## About This Portfolio
 
-Este sitio presenta proyectos basados en experiencia práctica con:
+This website presents selected projects based on practical experience with:
 
-- Power BI y modelado semántico
-- SQL y Databricks
+- Power BI and semantic modeling
+- SQL and Databricks
 - Power Query
-- Excel avanzado
-- VBA y automatización
-- Análisis financiero y operacional
+- Advanced Excel
+- VBA and process automation
+- Financial and operational analytics
 
-El portafolio fue desarrollado como un sitio estático responsive, sin frameworks, utilizando **HTML, CSS y JavaScript**.
+The portfolio was developed as a responsive static website using **HTML, CSS, and JavaScript**, without external frameworks.
 
-## Proyectos destacados
+## Featured Projects
 
 ### 1. Global Financial Performance Dashboard
 
-Dashboard financiero interactivo con datos sintéticos para analizar ventas, margen, contribución y desempeño por región, cuenta y canal.
+Interactive financial dashboard built with synthetic data to analyze sales, margin, contribution, and performance across regions, accounts, and channels.
 
-**Herramientas:** Power BI, DAX, SQL y modelado de datos.
+**Tools:** Power BI, DAX, SQL, and data modeling.
 
 ### 2. Financial Spend Analytics Transformation
 
-Caso de migración de reglas de negocio, agregaciones y jerarquías de ordenamiento desde Power Query hacia Databricks para alimentar un reporte financiero dinámico en Power BI.
+Migration of business rules, aggregations, and sorting hierarchies from Power Query into Databricks to support a dynamic financial reporting solution in Power BI.
 
-El caso muestra:
+The case study demonstrates:
 
-- Transformaciones por capas en Databricks
-- Agregación y ranking de jerarquías
-- Funciones de ventana
-- Consolidación de tablas reutilizables
-- Integración con parámetros y visualizaciones de Power BI
+- Layered transformations in Databricks
+- Hierarchy aggregation and ranking
+- Window functions
+- Reusable consolidated tables
+- Integration with Power BI parameters and visualizations
 
-Los nombres de sistemas, catálogos, empresas y cifras internas fueron generalizados o anonimizados.
+Internal system names, catalogs, company names, and figures were generalized or anonymized.
 
 ### 3. Caregiver Operations Management System
 
-Herramienta desarrollada en Excel VBA para centralizar registros de cuidadores, buscar candidatos mediante múltiples criterios, actualizar información y consultar incidentes desde una sola interfaz.
+Excel VBA tool created to centralize caregiver records, search candidates using multiple criteria, update information, and retrieve incident history through a single interface.
 
-El caso incluye:
+The case study includes:
 
-- Formularios VBA
-- Validación de datos
-- Disponibilidad por día
-- Filtros por idioma, ubicación y preferencias
-- Registro relacionado de incidentes
-- Datos completamente ficticios
+- VBA UserForms
+- Data validation
+- Daily availability management
+- Filters by language, location, and case preferences
+- Related incident records
+- Fully fictional demonstration data
 
-## Estructura del repositorio
+## Repository Structure
 
 ```text
 jgonzalez-bi.github.io/
@@ -77,17 +77,17 @@ jgonzalez-bi.github.io/
     └── Josue_Gonzalez_CV_EN.pdf
 ```
 
-## Funcionalidades
+## Website Features
 
-- Navegación responsive
-- Contenido en español e inglés
-- Casos de estudio independientes
-- Visualizaciones construidas con HTML y CSS
-- Demo financiera interactiva
-- CV descargable en ambos idiomas
-- Diseño optimizado para escritorio y dispositivos móviles
+- Responsive navigation
+- English and Spanish content
+- Independent case-study pages
+- Visualizations built with HTML and CSS
+- Interactive financial dashboard demo
+- Downloadable CV in both languages
+- Desktop and mobile optimization
 
-## Tecnologías
+## Technologies
 
 ```text
 HTML5
@@ -102,11 +102,11 @@ Excel
 VBA
 ```
 
-## Publicación en GitHub Pages
+## Deployment
 
-El sitio se publica automáticamente desde la rama `main`.
+The website is automatically published through GitHub Pages from the `main` branch.
 
-Para actualizarlo:
+To deploy an update:
 
 ```bash
 git add .
@@ -114,30 +114,38 @@ git commit -m "Update portfolio"
 git push origin main
 ```
 
-GitHub Pages desplegará los cambios en:
+GitHub Pages will publish the changes at:
 
 ```text
 https://jgonzalez-bi.github.io/
 ```
 
-## Datos y confidencialidad
+## Data Privacy and Confidentiality
 
-Los proyectos representan experiencia y lógica de soluciones reales, pero:
+The projects reflect real analytical and technical experience, but:
 
-- Los datos mostrados son sintéticos o ficticios.
-- Los nombres internos fueron generalizados.
-- No se incluyen rutas, credenciales, información personal ni datos confidenciales.
-- Las visualizaciones públicas fueron recreadas específicamente para este portafolio.
+- All displayed data is synthetic or fictional.
+- Internal names were generalized.
+- No credentials, personal information, proprietary paths, or confidential company data are included.
+- Public visualizations were recreated specifically for this portfolio.
 
-## Contacto
+## Contact
 
 - **GitHub:** https://github.com/jgonzalez-bi
-- **Portafolio:** https://jgonzalez-bi.github.io/
+- **Portfolio:** https://jgonzalez-bi.github.io/
 
 ---
 
-## English summary
+# Resumen en español
 
-Bilingual portfolio focused on **Business Intelligence, financial analytics, data transformation and process automation**.
+Portafolio bilingüe enfocado en **Business Intelligence, análisis financiero, transformación de datos y automatización de procesos**.
 
-The projects demonstrate practical experience with Power BI, SQL, Databricks, Power Query, Excel and VBA. All public examples use synthetic or anonymized data and exclude confidential company information.
+Los proyectos demuestran experiencia práctica con Power BI, SQL, Databricks, Power Query, Excel y VBA.
+
+## Proyectos incluidos
+
+- **Global Financial Performance Dashboard:** dashboard financiero interactivo con datos sintéticos.
+- **Financial Spend Analytics Transformation:** migración de transformaciones y jerarquías desde Power Query hacia Databricks para consumo en Power BI.
+- **Caregiver Operations Management System:** herramienta en Excel VBA para centralizar registros, realizar búsquedas multicriterio y consultar incidentes.
+
+Todos los ejemplos públicos utilizan datos sintéticos, ficticios o anonimizados y no incluyen información confidencial.
