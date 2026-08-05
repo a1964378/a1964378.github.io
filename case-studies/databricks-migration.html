@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=20260805-v2">
 </head>
 <body data-title-es="Financial Spend Analytics Transformation — Josué González" data-title-en="Financial Spend Analytics Transformation — Josue Gonzalez">
 <header class="site-header">
@@ -141,14 +141,14 @@
         <h2 data-i18n="migration.title">Diseño de la migración</h2>
         <p data-i18n="migration.p">La migración reconstruyó el flujo por capas en Databricks. Los nombres que se muestran a continuación están anonimizados, pero conservan la lógica implementada.</p>
 
-        <div class="architecture">
-          <div class="arch-box"><b>FACT TEMP</b><span data-i18n="migration.arch1">Hechos + escenarios + jerarquía Spend Analytics</span></div>
-          <div class="arch-arrow">→</div>
-          <div class="arch-box"><b>SORT FACT</b><span data-i18n="migration.arch2">Reglas de negocio y periodo fiscal</span></div>
-          <div class="arch-arrow">→</div>
-          <div class="arch-box"><b>RANKED VIEWS</b><span data-i18n="migration.arch3">Agregación, índice y atributos visuales</span></div>
-          <div class="arch-arrow">→</div>
-          <div class="arch-box"><b>FINAL SORT TABLE</b><span data-i18n="migration.arch4">Salida consolidada para Power BI</span></div>
+        <div class="migration-flow">
+          <div class="migration-step"><b>FACT TEMP</b><span data-i18n="migration.arch1">Hechos + escenarios + jerarquía de gasto</span></div>
+          <div class="migration-arrow">→</div>
+          <div class="migration-step"><b>SORT FACT</b><span data-i18n="migration.arch2">Reglas de negocio y periodo fiscal</span></div>
+          <div class="migration-arrow">→</div>
+          <div class="migration-step"><b>RANKED VIEWS</b><span data-i18n="migration.arch3">Agregación, índice y atributos visuales</span></div>
+          <div class="migration-arrow">→</div>
+          <div class="migration-step"><b>FINAL SORT TABLE</b><span data-i18n="migration.arch4">Salida consolidada para Power BI</span></div>
         </div>
 
         <div class="code">
@@ -226,9 +226,9 @@
       <section id="resultado">
         <h2 data-i18n="result.title">Resultado</h2>
         <div class="outcome-grid">
-          <div class="outcome"><b>Centralizado</b><span data-i18n="result.1">reglas de monto, ranking y color administradas en Databricks</span></div>
-          <div class="outcome"><b>Reutilizable</b><span data-i18n="result.2">una estructura común para múltiples jerarquías del reporte</span></div>
-          <div class="outcome"><b>Consistente</b><span data-i18n="result.3">orden estable entre gráficos, leyendas y parámetros dinámicos</span></div>
+          <div class="outcome"><b data-i18n="result.kpi1">Centralizado</b><span data-i18n="result.1">reglas de monto, ranking y color administradas en Databricks</span></div>
+          <div class="outcome"><b data-i18n="result.kpi2">Reutilizable</b><span data-i18n="result.2">una estructura común para múltiples jerarquías del reporte</span></div>
+          <div class="outcome"><b data-i18n="result.kpi3">Consistente</b><span data-i18n="result.3">orden estable entre gráficos, leyendas y parámetros dinámicos</span></div>
         </div>
         <p class="confidential" data-i18n="result.note">El caso evita rutas, catálogos, nombres de empresa y cifras internas. El código y la visualización fueron anonimizados sin cambiar la lógica técnica del proyecto.</p>
       </section>
@@ -275,7 +275,7 @@ es:{
   'powerbi.p':'La estructura del PBIX confirma que las tablas Sort participan directamente en los visuales y parámetros dinámicos. En “Spend Analytics”, la tabla de Spend Area controla categorías utilizadas por Spend Breakdown, % of NS Breakdown, MOB Chart y Legend Chart.',
   'powerbi.1':'Medidas verificadas en la página: Amount, Amount ($) (Scaled) y Amount as % of NS (%).','powerbi.2':'Parámetros dinámicos presentes en el reporte: Axis, Legend y Spend Analytics.','powerbi.3':'Las categorías mantienen un orden consistente sin depender de transformaciones repetidas dentro del PBIX.','powerbi.4':'La leyenda puede recuperar atributos visuales asociados al índice de cada jerarquía.',
   'powerbi.note':'La estructura, los nombres de las páginas, los títulos de los visuales y los campos descritos fueron verificados en el PBIX suministrado. La imagen superior es una recreación anonimizada con cifras sintéticas.',
-  'result.title':'Resultado','result.1':'reglas de monto, ranking y color administradas en Databricks','result.2':'una estructura común para múltiples jerarquías del reporte','result.3':'orden estable entre gráficos, leyendas y parámetros dinámicos',
+  'result.title':'Resultado','result.kpi1':'Centralizado','result.kpi2':'Reutilizable','result.kpi3':'Consistente','result.1':'reglas de monto, ranking y color administradas en Databricks','result.2':'una estructura común para múltiples jerarquías del reporte','result.3':'orden estable entre gráficos, leyendas y parámetros dinámicos',
   'result.note':'El caso evita rutas, catálogos, nombres de empresa y cifras internas. El código y la visualización fueron anonimizados sin cambiar la lógica técnica del proyecto.',
   'next.label':'Siguiente caso','next.title':'Caregiver Operations Management System'
 },
@@ -301,12 +301,12 @@ en:{
   'powerbi.p':'The PBIX structure confirms that the Sort tables participate directly in visuals and dynamic parameters. On “Spend Analytics”, the Spend Area sorting table controls categories used by Spend Breakdown, % of NS Breakdown, MOB Chart and Legend Chart.',
   'powerbi.1':'Measures verified on the page: Amount, Amount ($) (Scaled) and Amount as % of NS (%).','powerbi.2':'Dynamic parameters present in the report: Axis, Legend and Spend Analytics.','powerbi.3':'Categories maintain consistent order without relying on repeated transformations inside the PBIX.','powerbi.4':'The legend can retrieve visual attributes associated with each hierarchy index.',
   'powerbi.note':'The structure, page names, visual titles and fields described were verified in the provided PBIX. The image above is an anonymized recreation using synthetic figures.',
-  'result.title':'Outcome','result.1':'amount, ranking and color rules managed in Databricks','result.2':'one common structure across multiple report hierarchies','result.3':'stable ordering across charts, legends and dynamic parameters',
+  'result.title':'Outcome','result.kpi1':'Centralized','result.kpi2':'Reusable','result.kpi3':'Consistent','result.1':'amount, ranking and color rules managed in Databricks','result.2':'one common structure across multiple report hierarchies','result.3':'stable ordering across charts, legends and dynamic parameters',
   'result.note':'The case omits internal paths, catalogs, company names and figures. The code and visualization were anonymized without changing the project’s technical logic.',
   'next.label':'Next case','next.title':'Caregiver Operations Management System'
 }
 };
 </script>
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/main.js?v=20260805-v2"></script>
 </body>
 </html>
