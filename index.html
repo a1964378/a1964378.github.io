@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Josué González — Business Intelligence Analyst</title>
+<meta name="description" content="Portafolio de Josué González, Business Intelligence Analyst. Power BI, Databricks, PySpark, SQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0C1119;
+  --panel:#131C28;
+  --panel-2:#182335;
+  --line:#243244;
+  --text:#EAEFF6;
+  --muted:#8496AB;
+  --accent:#F0B429;
+  --pos:#4CC38A;
+  --neg:#E5484D;
+  --display:'Bricolage Grotesque','Helvetica Neue',sans-serif;
+  --sans:'IBM Plex Sans','Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;opacity:.16;
+  mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 20%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 20%,transparent 75%);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(12px);background:rgba(12,17,25,.82);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;gap:18px;height:62px}
+.mark{
+  font-family:var(--mono);font-weight:600;font-size:13px;letter-spacing:.14em;
+  color:var(--accent);text-decoration:none;white-space:nowrap;
+}
+.navlinks{display:flex;gap:20px;margin-left:auto}
+.navlinks a{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;
+  color:var(--muted);text-decoration:none;transition:color .18s;
+}
+.navlinks a:hover{color:var(--text)}
+.langtoggle{
+  display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;margin-left:auto;
+}
+.navlinks + .langtoggle{margin-left:0}
+.langtoggle button{
+  background:none;border:0;color:var(--muted);padding:6px 12px;cursor:pointer;
+  font:inherit;transition:background .18s,color .18s;
+}
+.langtoggle button[aria-pressed="true"]{background:var(--accent);color:#0C1119;font-weight:600}
+
+/* ---------- hero ---------- */
+.hero{padding:76px 0 40px}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 18px;
+}
+.hero h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(2.5rem,7.2vw,4.6rem);line-height:.98;letter-spacing:-.025em;
+  margin:0 0 18px;
+}
+.hero .lede{
+  font-size:clamp(1rem,2.4vw,1.2rem);color:var(--muted);
+  max-width:48ch;margin:0 0 34px;
+}
+
+/* ---------- console (signature) ---------- */
+.console{
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  box-shadow:0 24px 60px -30px rgba(0,0,0,.9);
+}
+.console-head{
+  display:flex;align-items:center;gap:8px;padding:10px 14px;
+  border-bottom:1px solid var(--line);background:rgba(0,0,0,.22);
+}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.console-head span{
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  letter-spacing:.08em;margin-left:6px;
+}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:14px}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.02em;
+  background:transparent;color:var(--muted);
+  border:1px solid var(--line);border-radius:6px;padding:6px 11px;cursor:pointer;
+  transition:border-color .18s,color .18s,background .18s;
+}
+.chip:hover{color:var(--text);border-color:var(--muted)}
+.chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:rgba(240,180,41,.09)}
+.query{
+  font-family:var(--mono);font-size:clamp(12px,2.6vw,13.5px);
+  padding:4px 16px 16px;color:var(--text);min-height:2.6em;white-space:pre-wrap;word-break:break-word;
+}
+.query .kw{color:var(--accent)}
+.caret{
+  display:inline-block;width:8px;height:1.05em;background:var(--accent);
+  vertical-align:-2px;margin-left:2px;animation:blink 1.05s steps(1) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+.grid-out{border-top:1px solid var(--line)}
+.row{
+  display:grid;grid-template-columns:minmax(96px,30%) 1fr;gap:14px;
+  padding:11px 16px;border-bottom:1px solid rgba(36,50,68,.55);
+  font-family:var(--mono);font-size:13px;
+  opacity:0;transform:translateY(5px);animation:rowin .34s ease forwards;
+}
+.row:last-child{border-bottom:0}
+.row .k{color:var(--muted);letter-spacing:.03em}
+.row .v{color:var(--text)}
+.row .v em{font-style:normal;color:var(--accent)}
+@keyframes rowin{to{opacity:1;transform:none}}
+.rowcount{
+  font-family:var(--mono);font-size:11.5px;color:var(--muted);
+  padding:10px 16px;border-top:1px solid var(--line);background:rgba(0,0,0,.18);
+}
+
+/* ---------- sections ---------- */
+section{padding:74px 0 10px}
+.sechead{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.secnum{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.12em}
+h2{
+  font-family:var(--display);font-weight:700;letter-spacing:-.02em;
+  font-size:clamp(1.7rem,4.2vw,2.5rem);margin:0;
+}
+.secsub{color:var(--muted);margin:0 0 30px;max-width:56ch;font-size:15px}
+
+/* ---------- filters + projects ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.cards{display:grid;gap:16px}
+@media(min-width:760px){.cards{grid-template-columns:1fr 1fr}}
+.card{
+  border:1px solid var(--line);border-radius:12px;background:var(--panel);
+  padding:22px;transition:border-color .2s,transform .2s;
+}
+.card:hover{border-color:#33465F;transform:translateY(-2px)}
+.card.hide{display:none}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card h3{font-family:var(--display);font-weight:700;font-size:1.18rem;margin:0;letter-spacing:-.01em;line-height:1.25}
+.badge{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);border:1px solid rgba(240,180,41,.35);border-radius:999px;
+  padding:3px 9px;white-space:nowrap;
+}
+.card p{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+.metric{
+  display:flex;align-items:baseline;gap:10px;
+  padding:12px 14px;border-radius:8px;background:var(--panel-2);
+  border-left:2px solid var(--pos);margin-bottom:16px;
+}
+.metric b{font-family:var(--mono);font-size:1.15rem;color:var(--pos);font-weight:600}
+.metric span{font-size:13px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tag{
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  border:1px solid var(--line);border-radius:5px;padding:3px 8px;
+}
+.disclose{
+  width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);
+  color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  padding:12px 0 0;cursor:pointer;transition:color .18s;
+}
+.disclose:hover{color:var(--accent)}
+.details{display:none;padding-top:14px}
+.details.open{display:block;animation:rowin .3s ease forwards}
+@media(max-width:620px){.crow{grid-template-columns:1fr auto;gap:6px}.crow .cbar{grid-column:1 / -1}}
+.details ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
+.details li{margin-bottom:7px}
+
+/* ---------- demo dashboard ---------- */
+.demo-note{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;
+  color:var(--accent);border:1px dashed rgba(240,180,41,.45);border-radius:7px;
+  padding:9px 13px;margin-bottom:20px;display:inline-block;
+}
+.demo-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.panel{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:20px;margin-bottom:16px}
+.panel h4{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 16px;font-weight:500;
+}
+.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.kpi{border:1px solid var(--line);border-radius:9px;padding:14px;background:var(--panel-2)}
+.kpi .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.kpi .val{font-family:var(--display);font-weight:700;font-size:1.55rem;letter-spacing:-.02em;margin:6px 0 2px}
+.kpi .sub{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.delta{font-family:var(--mono);font-size:12px;font-weight:600}
+.delta.up{color:var(--pos)} .delta.down{color:var(--neg)}
+.crow{display:grid;grid-template-columns:minmax(90px,1fr) 2.2fr auto;gap:12px;align-items:center;padding:8px 0}
+.crow .cname{font-size:13.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cbar{height:9px;border-radius:5px;background:rgba(36,50,68,.7);overflow:hidden}
+.cbar i{display:block;height:100%;background:linear-gradient(90deg,#F0B429,#F5CE6B);border-radius:5px;transition:width .5s ease}
+.crow .cval{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-align:right;white-space:nowrap}
+.stack100{display:flex;gap:14px;align-items:flex-end;overflow-x:auto;padding-bottom:6px}
+.stackbar{flex:1 0 78px;display:flex;flex-direction:column-reverse;height:210px;border-radius:6px;overflow:hidden}
+.stackbar div{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9.5px;color:rgba(0,0,0,.62);font-weight:600}
+.stacklabels{display:flex;gap:14px;margin-top:9px}
+.stacklabels span{flex:1 0 78px;font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:center}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:18px}
+.legend span{font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+
+/* ---------- timeline ---------- */
+.tl{border-left:1px solid var(--line);margin-left:6px;padding-left:26px}
+.tl-item{position:relative;padding-bottom:30px}
+.tl-item::before{
+  content:"";position:absolute;left:-32px;top:7px;width:11px;height:11px;
+  border-radius:50%;background:var(--bg);border:2px solid var(--accent);
+}
+.tl-when{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.09em}
+.tl-item h3{font-family:var(--display);font-weight:700;font-size:1.1rem;margin:5px 0 3px}
+.tl-item .where{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:8px}
+.tl-item p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* ---------- stack ---------- */
+.stack{display:grid;gap:14px}
+@media(min-width:700px){.stack{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}}
+.stackcol{border:1px solid var(--line);border-radius:10px;padding:18px;background:var(--panel)}
+.stackcol h3{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;font-weight:500;
+}
+.stackcol ul{list-style:none;margin:0;padding:0}
+.stackcol li{
+  font-family:var(--mono);font-size:13px;color:var(--muted);
+  padding:6px 0;border-bottom:1px solid rgba(36,50,68,.5);
+}
+.stackcol li:last-child{border-bottom:0}
+
+/* ---------- contact ---------- */
+.contact{
+  border:1px solid var(--line);border-radius:12px;background:var(--panel);
+  padding:30px;margin-bottom:30px;
+}
+.contact h2{margin-bottom:8px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.links a{
+  font-family:var(--mono);font-size:13px;text-decoration:none;
+  border:1px solid var(--line);border-radius:7px;padding:10px 16px;
+  color:var(--text);transition:border-color .18s,color .18s;
+}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+.links a.primary{background:var(--accent);color:#0C1119;border-color:var(--accent);font-weight:600}
+.links a.primary:hover{filter:brightness(1.08);color:#0C1119}
+footer{
+  border-top:1px solid var(--line);padding:26px 0 40px;
+  font-family:var(--mono);font-size:11.5px;color:var(--muted);
+}
+
+/* ---------- reveal + a11y ---------- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+@media(max-width:620px){
+  .navlinks{display:none}
+  .hero{padding:52px 0 30px}
+  .row{grid-template-columns:1fr;gap:3px}
+}
+@media print{
+  body{background:#fff;color:#111}
+  body::before,.topbar,.console-head,.chips,.filters,.disclose,.langtoggle{display:none}
+  .card,.stackcol,.contact,.console{border-color:#ccc;background:#fff;box-shadow:none}
+  .details{display:block!important}
+  #demo{display:none}
+  .muted,.card p,.row .k{color:#444}
+  section{padding:24px 0;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="#top">JG /</a>
+    <nav class="navlinks">
+      <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+      <a href="#demo" data-i18n="nav.demo">Demo</a>
+      <a href="#trayectoria" data-i18n="nav.path">Trayectoria</a>
+      <a href="#stack" data-i18n="nav.stack">Stack</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="langtoggle" role="group" aria-label="Idioma / Language">
+      <button id="btn-es" aria-pressed="true">ES</button>
+      <button id="btn-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero wrap">
+    <p class="eyebrow" data-i18n="hero.eyebrow">Business Intelligence · Panamá</p>
+    <h1 data-i18n="hero.name">Josué González</h1>
+    <p class="lede" data-i18n="hero.lede">Convierto datos financieros dispersos en tableros que la gerencia usa para decidir. Power BI, Databricks y SQL en reportería de KPIs para seis regiones globales.</p>
+
+    <div class="console">
+      <div class="console-head">
+        <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+        <span data-i18n="console.title">perfil.sql — resultado en vivo</span>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Consultas"></div>
+      <div class="query" id="query" aria-live="polite"></div>
+      <div class="grid-out" id="gridout"></div>
+      <div class="rowcount" id="rowcount"></div>
+    </div>
+  </div>
+
+  <section id="proyectos" class="wrap reveal">
+    <div class="sechead"><span class="secnum">01</span><h2 data-i18n="proj.h">Proyectos</h2></div>
+    <p class="secsub" data-i18n="proj.sub">Trabajo real de producción. Los detalles internos de cliente están omitidos; lo que ves es el problema, el enfoque y el resultado.</p>
+    <div class="filters" id="filters" role="group" aria-label="Filtro"></div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section id="demo" class="wrap reveal">
+    <div class="sechead"><span class="secnum">02</span><h2 data-i18n="demo.h">Demo</h2></div>
+    <p class="secsub" data-i18n="demo.sub">Una recreación del tipo de reporte que construyo, para que se pueda navegar sin pedir acceso a nada.</p>
+    <div class="demo-note" data-i18n="demo.note">Datos ficticios generados para esta demo. Ninguna cifra proviene de un cliente real.</div>
+    <div class="demo-tabs" id="demo-tabs" role="group" aria-label="Región"></div>
+    <div class="panel"><h4 data-i18n="demo.kpiH">Resumen</h4><div class="kpis" id="demo-kpis"></div></div>
+    <div class="panel"><h4 data-i18n="demo.custH">Cuentas por GSRV</h4><div id="demo-cust"></div></div>
+    <div class="panel">
+      <h4 data-i18n="demo.plH">Composición del P&amp;L por canal (% GSRV)</h4>
+      <div class="stack100" id="demo-stack"></div>
+      <div class="stacklabels" id="demo-stacklabels"></div>
+      <div class="legend" id="demo-legend"></div>
+    </div>
+  </section>
+
+  <section id="trayectoria" class="wrap reveal">
+    <div class="sechead"><span class="secnum">03</span><h2 data-i18n="tl.h">Trayectoria</h2></div>
+    <p class="secsub" data-i18n="tl.sub">De literatura inglesa a operaciones, y de operaciones a datos. El cambio fue deliberado.</p>
+    <div class="tl" id="timeline"></div>
+  </section>
+
+  <section id="stack" class="wrap reveal">
+    <div class="sechead"><span class="secnum">04</span><h2 data-i18n="stack.h">Stack</h2></div>
+    <p class="secsub" data-i18n="stack.sub">Herramientas que uso a diario, no una lista de todo lo que he tocado alguna vez.</p>
+    <div class="stack" id="stackgrid"></div>
+  </section>
+
+  <section id="contacto" class="wrap reveal">
+    <div class="contact">
+      <div class="sechead"><span class="secnum">05</span><h2 data-i18n="ct.h">Hablemos</h2></div>
+      <p class="secsub" style="margin-bottom:0" data-i18n="ct.sub">Abierto a roles de BI y analítica de datos, presenciales en Panamá o remotos.</p>
+      <div class="links">
+        <a class="primary" href="mailto:josue41999@gmail.com" data-i18n="ct.mail">Escríbeme</a>
+        <a href="https://www.linkedin.com/in/josue-gonza/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/jgonzalez-bi" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" id="printcv" data-i18n="ct.pdf">Descargar CV (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span data-i18n="footer">Hecho a mano · HTML, CSS y JavaScript · Sin frameworks</span>
+</footer>
+
+<script>
+const DATA = {
+  es:{
+    "nav.projects":"Proyectos","nav.path":"Trayectoria","nav.stack":"Stack","nav.contact":"Contacto",
+    "hero.eyebrow":"Business Intelligence & Data Analyst · Panamá",
+    "hero.name":"Josue Gonzalez",
+    "hero.lede":"Analista de BI y datos bilingüe con más de 3 años en roles de datos y analítica. Power BI, SQL, Databricks y Excel avanzado para construir dashboards, automatizar reportes y convertir datos complejos en decisiones.",
+    "console.title":"perfil.sql — resultado en vivo",
+    "proj.h":"Proyectos",
+    "proj.sub":"Trabajo de producción en roles actuales y anteriores. Los detalles internos de cada empresa están omitidos; lo que ves es el problema, el enfoque y el resultado.",
+    "tl.h":"Trayectoria",
+    "tl.sub":"De literatura inglesa a operaciones, y de operaciones a datos. El cambio fue deliberado.",
+    "stack.h":"Stack",
+    "stack.sub":"Herramientas que uso a diario y certificaciones completadas.",
+    "ct.h":"Hablemos",
+    "ct.sub":"Abierto a conversar sobre roles de BI y analítica de datos, en Panamá o remotos.",
+    "ct.mail":"Escríbeme","ct.pdf":"Descargar CV (PDF)",
+    "footer":"Hecho a mano · HTML, CSS y JavaScript · Sin frameworks",
+    "nav.demo":"Demo",
+    "demo.h":"Demo de dashboard",
+    "demo.sub":"Una recreación del tipo de reporte que construyo, para que se pueda navegar sin pedir acceso a nada.",
+    "demo.note":"Datos ficticios generados para esta demo. Ninguna cifra proviene de un cliente real.",
+    "demo.kpiH":"Resumen — YTD vs. año anterior",
+    "demo.custH":"Cuentas por GSRV",
+    "demo.plH":"Composición del P&L por canal (% GSRV)",
+    demo:{
+      regions:{total:"Total",na:"NA",uk:"UK",euem:"EUEM",apac:"APAC",china:"China",latam:"LATAM"},
+      kpis:{rs:"Retail Sales",gsrv:"GSRV",gs:"Gross Sales",ns:"Net Sales",ac:"Account Contribution",acp:"AC % GSRV"},
+      prior:"año anterior", online:"Online", bm:"B&M",
+      channels:["Prestige DS","Mid-Tier DS","Specialty Multi","Pure Play"],
+      pl:["Trade Margin","Returns","COGS","Descuentos","Promo neto","Selling","Consumer A&P","Shipping","Operaciones","Account Contribution"]
+    },
+    all:"Todos", rows:"filas", showMore:"Ver detalle +", showLess:"Ocultar detalle −",
+    queries:[
+      {id:"perfil",sql:"SELECT * FROM perfil;",rows:[
+        ["rol","Business Intelligence & Data Analyst"],
+        ["empresa","Estée Lauder Companies"],
+        ["base","Las Cumbres, Panamá"],
+        ["experiencia","<em>3+ años</em> en datos y analítica"],
+        ["idiomas","Español (nativo) · Inglés (C1)"]
+      ]},
+      {id:"impacto",sql:"SELECT metrica, valor FROM impacto;",rows:[
+        ["dashboard","<em>20+ vistas</em> en un reporte financiero global"],
+        ["validación","KPIs contra el source of truth de CPM en <em>6 regiones</em>"],
+        ["automatización","<em>~10 horas</em> semanales devueltas al equipo"],
+        ["eficiencia","<em>+30%</em> en visibilidad y eficiencia de proceso"],
+        ["volumen","<em>~300 datasets</em> diarios validados"]
+      ]},
+      {id:"stack",sql:"SELECT herramienta FROM stack WHERE uso = 'diario';",rows:[
+        ["visualización","Power BI · DAX · modelado"],
+        ["datos","SQL · PySpark · Databricks"],
+        ["preparación","Power Query · Excel avanzado · VBA"],
+        ["análisis","Python · Pandas · Matplotlib"]
+      ]},
+      {id:"formacion",sql:"SELECT credencial, año FROM formacion;",rows:[
+        ["Analyzing Data with Power BI (DA-100)","Florida State University, Panamá · 2025"],
+        ["Bases de Datos y SQL para Data Science","IBM / Coursera · 2026"],
+        ["Licenciatura en Inglés","Universidad de Panamá · 2019–2022"],
+        ["International English Scholarship","Edinburgh College, Escocia · 2018"]
+      ]}
+    ],
+    chipLabels:{perfil:"perfil",impacto:"impacto",stack:"stack",formacion:"formación"},
+    projects:[
+      {
+        title:"Dashboard financiero global en Power BI",
+        badge:"Power BI",
+        desc:"Desarrollo y mantenimiento del reporte que usan los equipos de FP&A y ejecutivos para leer performance financiera y de ventas.",
+        metricValue:"20+ vistas",
+        metricLabel:"en un solo dashboard, para múltiples regiones y marcas",
+        tags:["Power BI","DAX","SQL","Databricks"],
+        details:[
+          "Gestión y análisis de KPIs: Retail Sales, Gross Sales YoY, Net Sales, Account Contribution y Commercial Investments.",
+          "Cobertura de múltiples regiones, canales y marcas dentro del mismo modelo.",
+          "Presentaciones financieras a nivel ejecutivo para el CFO, convirtiendo análisis de KPIs en recomendaciones concretas."
+        ]
+      },
+      {
+        title:"Migración de Power Query a Databricks",
+        badge:"Ingeniería de datos",
+        desc:"Las transformaciones vivían en Power Query y se caían con el volumen. Lideré la migración a vistas SQL y tablas agregadas en Databricks.",
+        metricValue:"Millones de filas",
+        metricLabel:"movidas fuera de Power Query, con refresh mucho más rápido",
+        tags:["Databricks","PySpark","SQL","Power Query"],
+        details:[
+          "Eliminación de cuellos de botella en datasets de millones de filas y reducción significativa de los tiempos de actualización del reporte.",
+          "Lógica de transformación en SQL y PySpark para convertir estructuras financieras jerárquicas (parent-child) en tablas planas optimizadas.",
+          "Resultado: reportes escalables y dinámicos en Power BI en lugar de un modelo que crecía sin control."
+        ]
+      },
+      {
+        title:"Auditoría de integridad de datos",
+        badge:"Calidad de datos",
+        desc:"Una cuenta clave perdió contribución entre un cierre y el siguiente sin razón aparente. Comparé dos extractos del sistema de origen y demostré que el reporte estaba bien: lo que falló fue la fuente.",
+        metricValue:"6 regiones",
+        metricLabel:"validadas contra el source of truth de CPM",
+        tags:["SQL","DAX","Power Query","Excel"],
+        details:[
+          "Comparación directa de dos extractos del cubo financiero tomados con la misma conexión y configuración, para descartar cambios de setup, de cubo o de permisos.",
+          "Hallazgo: filas de ventas ya cerradas habían desaparecido del origen mientras los costos permanecían, volviendo negativa la contribución de la cuenta.",
+          "Desglose por marca y por periodo separando filas modificadas de filas suprimidas, para que el hallazgo fuera verificable y no una afirmación.",
+          "En paralelo, registros duplicados en el extracto crudo que inflaban otra cuenta, aislados mediante la bandera de mantenimiento del proceso de carga.",
+          "El análisis sirvió de base para escalar el caso al equipo dueño del sistema de origen."
+        ]
+      },
+      {
+        title:"Master Report consolidado",
+        badge:"Power Query",
+        desc:"Tres datasets separados alimentaban reportes distintos. Los consolidé en un solo reporte maestro y rediseñé el modelo detrás.",
+        metricValue:"3 datasets",
+        metricLabel:"Units, Promotional Units y Brand Growth en una sola fuente",
+        tags:["Power Query","Power BI","Excel"],
+        details:[
+          "Rediseño del modelo de datos para eliminar dependencias externas.",
+          "Mejora de la eficiencia del reporte y de su mantenimiento."
+        ]
+      },
+      {
+        title:"Base de datos de asistentes de cuidado",
+        badge:"Excel + VBA",
+        desc:"Care Operations manejaba registros manuales dispersos. Construí y presenté a gerencia un prototipo de base de datos en Excel con formularios VBA.",
+        metricValue:"~10 usuarios",
+        metricLabel:"con búsqueda estructurada en vez de hojas sueltas",
+        tags:["Excel","VBA","Power Query"],
+        details:[
+          "Formulario de alta que valida y guarda cada asistente, sin que nadie escriba directo en las celdas.",
+          "Buscador con filtros por día disponible, idioma y condiciones del caso: paciente encamado, fumadores, mascotas, niños.",
+          "Registro de incidentes por asistente (Late, Call Out, NCNS) con selector de fecha propio.",
+          "Reducción de errores de entrada y del tiempo de consulta de datos."
+        ]
+      },
+      {
+        title:"Dashboard operacional y ETL en Excel",
+        badge:"Automatización",
+        desc:"Un equipo de 17 personas no tenía visibilidad de su propio proceso, y los reportes se armaban a mano todos los días.",
+        metricValue:"+30%",
+        metricLabel:"de eficiencia del equipo, y ~10 horas semanales recuperadas",
+        tags:["Excel","VBA","Power Query"],
+        details:[
+          "Dashboard en Excel con fórmulas avanzadas y tablas dinámicas: métricas diarias y semanales, tipos de registro procesados y tasas de error.",
+          "Reportes diarios y semanales automatizados con macros, ingestión de datos y transformación de CSV en Power Query.",
+          "Eliminación de un proceso manual de más de una hora diaria.",
+          "Contexto: validación de ~300 datasets diarios de facturación bajo estándares de auditoría interna y HIPAA."
+        ]
+      }
+    ],
+    timeline:[
+      {when:"Nov 2025 — Actual",title:"Analista de Business Intelligence / Datos",where:"Estée Lauder Companies",text:"Soporte de reportería financiera y analítica para equipos de Estrategia Financiera y ejecutivos, en múltiples regiones y marcas."},
+      {when:"Jul 2022 — Nov 2025",title:"Pre-Billing Specialist",where:"Insignia Resources",text:"Validación de datos de facturación para una operación de salud domiciliaria en EE. UU., bajo estándares de auditoría interna y HIPAA. Aquí construí el dashboard operacional y el prototipo VBA."},
+      {when:"Sep 2019 — Jul 2022",title:"Collection Specialist",where:"Connect International",text:"Reportería diaria en Excel sobre cuentas de clientes en EE. UU., procesamiento de pagos e integridad de datos en transacciones financieras reguladas."},
+      {when:"2019 — 2022",title:"Licenciatura en Inglés",where:"Universidad de Panamá",text:"Leer textos densos y defender una interpretación con evidencia. Resulta ser el mismo músculo que se usa para auditar un modelo de datos."}
+    ],
+    stack:[
+      {h:"Visualización y BI",items:["Power BI (DAX, modelado)","Excel avanzado","Tablas dinámicas","VBA"]},
+      {h:"Bases de datos",items:["SQL: JOINs, CTEs","Subconsultas, agregaciones","Databricks SQL","PySpark"]},
+      {h:"Análisis de datos",items:["Python (Pandas)","Matplotlib, Seaborn","Power Query","Limpieza y transformación"]},
+      {h:"Integración",items:["APIs / SharePoint","Pipelines CSV","Salesforce CRM","Sistemas ERP"]},
+      {h:"Certificaciones",items:["DA-100 Power BI · 2025","IBM SQL y Python · 2026","Edinburgh College · 2018"]}
+    ]
+  },
+  en:{
+    "nav.projects":"Projects","nav.path":"Path","nav.stack":"Stack","nav.contact":"Contact",
+    "hero.eyebrow":"Business Intelligence & Data Analyst · Panama",
+    "hero.name":"Josue Gonzalez",
+    "hero.lede":"Bilingual BI and data analyst with 3+ years in data and analytics roles. Power BI, SQL, Databricks and advanced Excel to build dashboards, automate reporting and turn complex data into decisions.",
+    "console.title":"profile.sql — live result",
+    "proj.h":"Projects",
+    "proj.sub":"Production work from current and previous roles. Internal company details are left out; what you see is the problem, the approach and the result.",
+    "tl.h":"Path",
+    "tl.sub":"From English literature to operations, and from operations to data. The move was deliberate.",
+    "stack.h":"Stack",
+    "stack.sub":"Tools I use daily, plus completed certifications.",
+    "ct.h":"Let's talk",
+    "ct.sub":"Open to conversations about BI and data analytics roles, in Panama or remote.",
+    "ct.mail":"Email me","ct.pdf":"Download CV (PDF)",
+    "footer":"Hand-built · HTML, CSS and JavaScript · No frameworks",
+    "nav.demo":"Demo",
+    "demo.h":"Dashboard demo",
+    "demo.sub":"A recreation of the kind of report I build, so it can be explored without asking anyone for access.",
+    "demo.note":"Dummy data generated for this demo. No figure comes from a real client.",
+    "demo.kpiH":"Summary — YTD vs. prior year",
+    "demo.custH":"Accounts by GSRV",
+    "demo.plH":"P&L composition by channel (% GSRV)",
+    demo:{
+      regions:{total:"Total",na:"NA",uk:"UK",euem:"EUEM",apac:"APAC",china:"China",latam:"LATAM"},
+      kpis:{rs:"Retail Sales",gsrv:"GSRV",gs:"Gross Sales",ns:"Net Sales",ac:"Account Contribution",acp:"AC % GSRV"},
+      prior:"prior year", online:"Online", bm:"B&M",
+      channels:["Prestige DS","Mid-Tier DS","Specialty Multi","Pure Play"],
+      pl:["Trade Margin","Returns","COGS","Discounts","Promo net","Selling","Consumer A&P","Shipping","Operations","Account Contribution"]
+    },
+    all:"All", rows:"rows", showMore:"Show detail +", showLess:"Hide detail −",
+    queries:[
+      {id:"perfil",sql:"SELECT * FROM profile;",rows:[
+        ["role","Business Intelligence & Data Analyst"],
+        ["company","Estée Lauder Companies"],
+        ["based in","Las Cumbres, Panama"],
+        ["experience","<em>3+ years</em> in data and analytics"],
+        ["languages","Spanish (native) · English (C1)"]
+      ]},
+      {id:"impacto",sql:"SELECT metric, value FROM impact;",rows:[
+        ["dashboard","<em>20+ views</em> in a global financial report"],
+        ["validation","KPIs against the CPM source of truth across <em>6 regions</em>"],
+        ["automation","<em>~10 hours</em> a week given back to the team"],
+        ["efficiency","<em>+30%</em> in process visibility and efficiency"],
+        ["volume","<em>~300 datasets</em> validated daily"]
+      ]},
+      {id:"stack",sql:"SELECT tool FROM stack WHERE usage = 'daily';",rows:[
+        ["visualization","Power BI · DAX · modeling"],
+        ["data","SQL · PySpark · Databricks"],
+        ["preparation","Power Query · Advanced Excel · VBA"],
+        ["analysis","Python · Pandas · Matplotlib"]
+      ]},
+      {id:"formacion",sql:"SELECT credential, year FROM education;",rows:[
+        ["Analyzing Data with Power BI (DA-100)","Florida State University, Panama · 2025"],
+        ["Databases and SQL for Data Science","IBM / Coursera · 2026"],
+        ["BA in English","Universidad de Panamá · 2019–2022"],
+        ["International English Scholarship","Edinburgh College, Scotland · 2018"]
+      ]}
+    ],
+    chipLabels:{perfil:"profile",impacto:"impact",stack:"stack",formacion:"education"},
+    projects:[
+      {
+        title:"Global financial dashboard in Power BI",
+        badge:"Power BI",
+        desc:"Building and maintaining the report FP&A and executive teams use to read financial and sales performance.",
+        metricValue:"20+ views",
+        metricLabel:"in a single dashboard, across regions and brands",
+        tags:["Power BI","DAX","SQL","Databricks"],
+        details:[
+          "Managing and analyzing KPIs: Retail Sales, Gross Sales YoY, Net Sales, Account Contribution and Commercial Investments.",
+          "Covering multiple regions, channels and brands inside the same model.",
+          "Executive-level financial presentations for the CFO, turning KPI analysis into concrete recommendations."
+        ]
+      },
+      {
+        title:"Power Query to Databricks migration",
+        badge:"Data engineering",
+        desc:"Transformations lived in Power Query and buckled under the volume. I led the migration to SQL views and aggregate tables in Databricks.",
+        metricValue:"Millions of rows",
+        metricLabel:"moved out of Power Query, with far faster refresh",
+        tags:["Databricks","PySpark","SQL","Power Query"],
+        details:[
+          "Removed bottlenecks on million-row datasets and cut report refresh times significantly.",
+          "Built SQL and PySpark transformation logic to turn hierarchical parent-child financial structures into flat, analysis-ready tables.",
+          "Result: scalable, dynamic Power BI reporting instead of a model growing out of control."
+        ]
+      },
+      {
+        title:"Data integrity audit",
+        badge:"Data quality",
+        desc:"A key account lost contribution between one close and the next with no obvious cause. I compared two source-system extracts and proved the report was right: the source was what broke.",
+        metricValue:"6 regions",
+        metricLabel:"validated against the CPM source of truth",
+        tags:["SQL","DAX","Power Query","Excel"],
+        details:[
+          "Direct comparison of two financial cube extracts pulled with identical connection and settings, ruling out a changed setup, a different cube or a permissions difference.",
+          "Finding: already-closed sales rows had disappeared from the source while costs remained, turning the account's contribution negative.",
+          "Breakdown by brand and by period, separating changed rows from suppressed rows, so the finding was verifiable rather than asserted.",
+          "In parallel, duplicate records in the raw extract inflating another account, isolated through the load process's maintenance flag.",
+          "The analysis became the basis for escalating the case to the team that owns the source system."
+        ]
+      },
+      {
+        title:"Consolidated Master Report",
+        badge:"Power Query",
+        desc:"Three separate datasets fed three separate reports. I consolidated them into one master report and redesigned the model behind it.",
+        metricValue:"3 datasets",
+        metricLabel:"Units, Promotional Units and Brand Growth in one source",
+        tags:["Power Query","Power BI","Excel"],
+        details:[
+          "Redesigned the data model to remove external dependencies.",
+          "Improved both report efficiency and maintainability."
+        ]
+      },
+      {
+        title:"Home care aide database",
+        badge:"Excel + VBA",
+        desc:"Care Operations was running on scattered manual records. I built and presented to management an Excel database prototype with VBA forms.",
+        metricValue:"~10 users",
+        metricLabel:"with structured search instead of loose spreadsheets",
+        tags:["Excel","VBA","Power Query"],
+        details:[
+          "Entry form that validates and saves each aide, so nobody types straight into cells.",
+          "Search with filters by available day, language and case conditions: bedbound patient, smokers, pets, children.",
+          "Per-aide incident log (Late, Call Out, NCNS) with a custom date picker.",
+          "Fewer data entry errors and less time spent looking things up."
+        ]
+      },
+      {
+        title:"Operational dashboard and Excel ETL",
+        badge:"Automation",
+        desc:"A 17-person team had no visibility into its own process, and reports were assembled by hand every day.",
+        metricValue:"+30%",
+        metricLabel:"team efficiency, and ~10 hours a week recovered",
+        tags:["Excel","VBA","Power Query"],
+        details:[
+          "Excel dashboard with advanced formulas and pivot tables: daily and weekly metrics, record types processed and error rates.",
+          "Daily and weekly reporting automated with macros, data ingestion and CSV transformation in Power Query.",
+          "Eliminated a manual process that took over an hour every day.",
+          "Context: validating ~300 billing datasets daily under internal audit standards and HIPAA."
+        ]
+      }
+    ],
+    timeline:[
+      {when:"Nov 2025 — Present",title:"Business Intelligence / Data Analyst",where:"Estée Lauder Companies",text:"Financial reporting and analytics support for Financial Strategy and executive teams, across multiple regions and brands."},
+      {when:"Jul 2022 — Nov 2025",title:"Pre-Billing Specialist",where:"Insignia Resources",text:"Billing data validation for a US home care staffing operation, under internal audit standards and HIPAA. This is where I built the operational dashboard and the VBA prototype."},
+      {when:"Sep 2019 — Jul 2022",title:"Collection Specialist",where:"Connect International",text:"Daily Excel reporting on US customer accounts, payment processing and data integrity in regulated financial transactions."},
+      {when:"2019 — 2022",title:"BA in English",where:"Universidad de Panamá",text:"Reading dense texts and defending a reading with evidence. Turns out it's the same muscle you use to audit a data model."}
+    ],
+    stack:[
+      {h:"Visualization & BI",items:["Power BI (DAX, modeling)","Advanced Excel","Pivot tables","VBA"]},
+      {h:"Databases",items:["SQL: JOINs, CTEs","Subqueries, aggregations","Databricks SQL","PySpark"]},
+      {h:"Data analysis",items:["Python (Pandas)","Matplotlib, Seaborn","Power Query","Cleaning & transformation"]},
+      {h:"Integration",items:["APIs / SharePoint","CSV pipelines","Salesforce CRM","ERP systems"]},
+      {h:"Certifications",items:["DA-100 Power BI · 2025","IBM SQL & Python · 2026","Edinburgh College · 2018"]}
+    ]
+  }
+};
+let lang = "es";
+let activeQuery = "perfil";
+let activeFilter = "__all__";
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = s => document.querySelector(s);
+
+function highlight(sql){
+  return sql.replace(/\b(SELECT|FROM|WHERE|ORDER BY|DESC)\b/g,'<span class="kw">$1</span>');
+}
+
+let typeTimer;
+function runQuery(id){
+  activeQuery = id;
+  const d = DATA[lang];
+  const q = d.queries.find(x => x.id === id);
+  document.querySelectorAll("#chips .chip").forEach(c =>
+    c.setAttribute("aria-pressed", String(c.dataset.q === id)));
+
+  const qEl = $("#query"), gEl = $("#gridout"), cEl = $("#rowcount");
+  gEl.innerHTML = ""; cEl.textContent = "";
+  clearTimeout(typeTimer);
+
+  const paint = () => {
+    gEl.innerHTML = q.rows.map(([k,v],i) =>
+      `<div class="row" style="animation-delay:${reduce?0:i*70}ms"><span class="k">${k}</span><span class="v">${v}</span></div>`
+    ).join("");
+    cEl.textContent = `${q.rows.length} ${d.rows} · 0.0${2+q.rows.length}s`;
+  };
+
+  if (reduce){ qEl.innerHTML = highlight(q.sql); paint(); return; }
+
+  let i = 0;
+  (function type(){
+    i++;
+    qEl.innerHTML = highlight(q.sql.slice(0,i)) + '<i class="caret"></i>';
+    if (i < q.sql.length) typeTimer = setTimeout(type, 26);
+    else typeTimer = setTimeout(() => { qEl.innerHTML = highlight(q.sql); paint(); }, 180);
+  })();
+}
+
+function renderChips(){
+  const d = DATA[lang];
+  $("#chips").innerHTML = d.queries.map(q =>
+    `<button class="chip" data-q="${q.id}" aria-pressed="${q.id===activeQuery}">${d.chipLabels[q.id]}</button>`
+  ).join("");
+  document.querySelectorAll("#chips .chip").forEach(c =>
+    c.addEventListener("click", () => runQuery(c.dataset.q)));
+}
+
+function renderProjects(){
+  const d = DATA[lang];
+  const tags = [...new Set(d.projects.flatMap(p => p.tags))];
+  $("#filters").innerHTML =
+    `<button class="chip" data-f="__all__" aria-pressed="${activeFilter==="__all__"}">${d.all}</button>` +
+    tags.map(t => `<button class="chip" data-f="${t}" aria-pressed="${activeFilter===t}">${t}</button>`).join("");
+
+  $("#cards").innerHTML = d.projects.map((p,i) => `
+    <article class="card" data-tags="${p.tags.join("|")}">
+      <div class="card-top">
+        <h3>${p.title}</h3>
+        <span class="badge">${p.badge}</span>
+      </div>
+      <p>${p.desc}</p>
+      <div class="metric"><b>${p.metricValue}</b><span>${p.metricLabel}</span></div>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <button class="disclose" aria-expanded="false" data-i="${i}">${d.showMore}</button>
+      <div class="details" id="det-${i}"><ul>${p.details.map(x => `<li>${x}</li>`).join("")}</ul></div>
+    </article>`).join("");
+
+  document.querySelectorAll("#filters .chip").forEach(b =>
+    b.addEventListener("click", () => { activeFilter = b.dataset.f; renderProjects(); }));
+
+  document.querySelectorAll(".disclose").forEach(b => b.addEventListener("click", () => {
+    const det = $("#det-" + b.dataset.i);
+    const open = det.classList.toggle("open");
+    b.setAttribute("aria-expanded", String(open));
+    b.textContent = open ? DATA[lang].showLess : DATA[lang].showMore;
+  }));
+
+  if (activeFilter !== "__all__"){
+    document.querySelectorAll("#cards .card").forEach(c => {
+      if (!c.dataset.tags.split("|").includes(activeFilter)) c.classList.add("hide");
+    });
+  }
+}
+
+function renderRest(){
+  const d = DATA[lang];
+  $("#timeline").innerHTML = d.timeline.map(t => `
+    <div class="tl-item">
+      <div class="tl-when">${t.when}</div>
+      <h3>${t.title}</h3>
+      <div class="where">${t.where}</div>
+      <p>${t.text}</p>
+    </div>`).join("");
+  $("#stackgrid").innerHTML = d.stack.map(s => `
+    <div class="stackcol">
+      <h3>${s.h}</h3>
+      <ul>${s.items.map(i => `<li>${i}</li>`).join("")}</ul>
+    </div>`).join("");
+}
+
+/* ---------- demo dashboard (datos sintéticos) ---------- */
+const REG_BASE = {
+  total:{rs:8420,yoy:3.1,acp:28.1,acpPrev:27.2,online:38.4},
+  na:{rs:3120,yoy:1.8,acp:26.4,acpPrev:27.1,online:31.2},
+  uk:{rs:640,yoy:-2.4,acp:24.9,acpPrev:26.3,online:44.7},
+  euem:{rs:1980,yoy:4.6,acp:29.8,acpPrev:28.5,online:35.9},
+  apac:{rs:1150,yoy:5.2,acp:30.6,acpPrev:29.4,online:41.3},
+  china:{rs:1180,yoy:7.9,acp:33.2,acpPrev:31.0,online:62.8},
+  latam:{rs:350,yoy:2.2,acp:25.1,acpPrev:24.6,online:28.4}
+};
+const CUST_POOL = ["Northgate Group","Aurora Beauty","Lumen Retail","Vermillion Stores","Casa Bloom","Kestrel Mall","Meridian Online","Halcyon Beauty","Solstice Group","Fairbank & Co"];
+const PL_COLORS = ["#F0B429","#E5484D","#5A6B80","#4CC38A","#3E9BD8","#7FC4E8","#E8A08A","#C77DBB","#2F3E52","#8B5CF6"];
+let activeRegion = "total";
+
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function seedOf(s){let x=0;for(let i=0;i<s.length;i++)x=(x*31+s.charCodeAt(i))|0;return x}
+function fmt(n){return n>=1000 ? (n/1000).toFixed(2)+"bn" : n.toFixed(0)+"M"}
+function pct(n){return (n>0?"+":"")+n.toFixed(1)+"%"}
+
+function renderDemo(){
+  const d = DATA[lang].demo, b = REG_BASE[activeRegion];
+  const gsrv=b.rs*1.13, gs=gsrv*.632, ns=gsrv*.501, ac=gsrv*b.acp/100;
+  const acPrev=(gsrv/(1+b.yoy/100))*b.acpPrev/100;
+  const acYoY=(ac/acPrev-1)*100;
+
+  document.getElementById("demo-tabs").innerHTML = Object.keys(REG_BASE).map(r =>
+    `<button class="chip" data-r="${r}" aria-pressed="${r===activeRegion}">${d.regions[r]}</button>`).join("");
+  document.querySelectorAll("#demo-tabs .chip").forEach(c =>
+    c.addEventListener("click", () => { activeRegion=c.dataset.r; renderDemo(); }));
+
+  const kpi=(l,v,dl,sub)=>`<div class="kpi"><div class="lbl">${l}</div><div class="val">${v}</div>
+    ${dl!==null?`<span class="delta ${dl>=0?"up":"down"}">${pct(dl)}</span> `:""}<span class="sub">${sub||""}</span></div>`;
+  document.getElementById("demo-kpis").innerHTML =
+    kpi(d.kpis.rs,fmt(b.rs),b.yoy,`${d.online} ${b.online.toFixed(1)}% · ${d.bm} ${(100-b.online).toFixed(1)}%`)+
+    kpi(d.kpis.gsrv,fmt(gsrv),b.yoy+0.4,d.prior+" "+fmt(gsrv/(1+b.yoy/100)))+
+    kpi(d.kpis.gs,fmt(gs),b.yoy+0.9,d.prior+" "+fmt(gs/(1+(b.yoy+0.9)/100)))+
+    kpi(d.kpis.ns,fmt(ns),b.yoy-0.3,d.prior+" "+fmt(ns/(1+(b.yoy-0.3)/100)))+
+    kpi(d.kpis.ac,fmt(ac),acYoY,d.prior+" "+fmt(acPrev))+
+    kpi(d.kpis.acp,b.acp.toFixed(1)+"%",b.acp-b.acpPrev,d.prior+" "+b.acpPrev.toFixed(1)+"%");
+
+  const r=mulberry(seedOf(activeRegion));
+  const custs=CUST_POOL.map(n=>({n,v:r()})).sort((a,c)=>c.v-a.v).slice(0,6);
+  const tot=custs.reduce((s,c)=>s+c.v,0);
+  document.getElementById("demo-cust").innerHTML = custs.map(c=>{
+    const share=c.v/tot, val=gsrv*share*0.71;
+    return `<div class="crow"><span class="cname">${c.n}</span>
+      <span class="cbar"><i style="width:${(c.v/custs[0].v*100).toFixed(1)}%"></i></span>
+      <span class="cval">${fmt(val)} · ${(share*100).toFixed(1)}%</span></div>`;
+  }).join("");
+
+  const stack=document.getElementById("demo-stack");
+  stack.innerHTML = d.channels.map((ch,ci)=>{
+    const rr=mulberry(seedOf(activeRegion+ch));
+    let parts=[38+rr()*8, 3+rr()*5, 7+rr()*5, 3+rr()*4, 4+rr()*4, 10+rr()*7, 3+rr()*4, 1.5+rr()*2, 1+rr()*2];
+    const sum=parts.reduce((a,b2)=>a+b2,0);
+    parts.push(Math.max(8,100-sum));
+    const norm=parts.map(x=>x/parts.reduce((a,b2)=>a+b2,0)*100);
+    return `<div class="stackbar">`+norm.map((v,i)=>
+      `<div style="height:${v}%;background:${PL_COLORS[i]}" title="${d.pl[i]} ${v.toFixed(1)}%">${v>=7?v.toFixed(0)+"%":""}</div>`).join("")+`</div>`;
+  }).join("");
+  document.getElementById("demo-stacklabels").innerHTML = d.channels.map(c=>`<span>${c}</span>`).join("");
+  document.getElementById("demo-legend").innerHTML = d.pl.map((l,i)=>
+    `<span><i style="background:${PL_COLORS[i]}"></i>${l}</span>`).join("");
+}
+
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  $("#btn-es").setAttribute("aria-pressed", String(l === "es"));
+  $("#btn-en").setAttribute("aria-pressed", String(l === "en"));
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const v = DATA[l][el.dataset.i18n];
+    if (v) el.textContent = v;
+  });
+  renderChips(); runQuery(activeQuery); renderProjects(); renderRest(); renderDemo();
+}
+
+$("#btn-es").addEventListener("click", () => setLang("es"));
+$("#btn-en").addEventListener("click", () => setLang("en"));
+$("#printcv").addEventListener("click", e => { e.preventDefault(); window.print(); });
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+}, {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+setLang("es");
+</script>
+</body>
+</html>
