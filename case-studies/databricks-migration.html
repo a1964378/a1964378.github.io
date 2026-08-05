@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=20260805-v2">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body data-title-es="Financial Spend Analytics Transformation — Josué González" data-title-en="Financial Spend Analytics Transformation — Josue Gonzalez">
 <header class="site-header">
@@ -141,14 +141,14 @@
         <h2 data-i18n="migration.title">Diseño de la migración</h2>
         <p data-i18n="migration.p">La migración reconstruyó el flujo por capas en Databricks. Los nombres que se muestran a continuación están anonimizados, pero conservan la lógica implementada.</p>
 
-        <div class="migration-flow">
-          <div class="migration-step"><b>FACT TEMP</b><span data-i18n="migration.arch1">Hechos + escenarios + jerarquía de gasto</span></div>
-          <div class="migration-arrow">→</div>
-          <div class="migration-step"><b>SORT FACT</b><span data-i18n="migration.arch2">Reglas de negocio y periodo fiscal</span></div>
-          <div class="migration-arrow">→</div>
-          <div class="migration-step"><b>RANKED VIEWS</b><span data-i18n="migration.arch3">Agregación, índice y atributos visuales</span></div>
-          <div class="migration-arrow">→</div>
-          <div class="migration-step"><b>FINAL SORT TABLE</b><span data-i18n="migration.arch4">Salida consolidada para Power BI</span></div>
+        <div class="architecture">
+          <div class="arch-box"><b>FACT TEMP</b><span data-i18n="migration.arch1">Hechos + escenarios + jerarquía Spend Analytics</span></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box"><b>SORT FACT</b><span data-i18n="migration.arch2">Reglas de negocio y periodo fiscal</span></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box"><b>RANKED VIEWS</b><span data-i18n="migration.arch3">Agregación, índice y atributos visuales</span></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box"><b>FINAL SORT TABLE</b><span data-i18n="migration.arch4">Salida consolidada para Power BI</span></div>
         </div>
 
         <div class="code">
@@ -307,6 +307,6 @@ en:{
 }
 };
 </script>
-<script src="../assets/js/main.js?v=20260805-v2"></script>
+<script src="../assets/js/main.js"></script>
 </body>
 </html>
