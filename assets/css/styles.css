@@ -298,116 +298,123 @@ footer{padding:34px 0 44px;border-top:1px solid var(--line);margin-top:90px;colo
 }
 
 
+
 /* Coded caregiver project visuals */
 .coded-care-project{align-content:center}
-.care-card-mini{
-  position:relative;z-index:1;width:100%;max-width:475px;
-  background:#e9eaec;color:#111;border:1px solid #afb3b7;
-  border-radius:9px;box-shadow:0 16px 38px rgba(0,0,0,.32);
-  padding:12px;font-family:Arial,sans-serif
-}
-.care-card-title{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:8px 9px;background:#f5f5f5;border:1px solid #bfc2c5
-}
-.care-card-title b{font-size:11px}
-.care-card-title span{font-size:6px;letter-spacing:.11em;color:#60656a}
-.care-card-fields{display:grid;grid-template-columns:.7fr 1.3fr .8fr;gap:7px;margin-top:10px}
-.care-card-fields i{
-  font-style:normal;font-size:7px;border:1px solid #a8adb1;
-  background:#fff;padding:8px;color:#565b5f
-}
-.care-card-body{display:grid;grid-template-columns:1.2fr .8fr;gap:9px;margin-top:9px}
-.care-card-body>div{border:1px solid #adb1b5;background:#f7f7f7;padding:9px}
-.care-card-body strong{display:block;font-size:8px;margin-bottom:6px}
-.care-card-body span{display:block;font-size:7px;padding:3px 0;border-bottom:1px solid #ddd}
-.care-card-results{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
-.care-card-results span{
-  height:52px;border:1px solid #aeb2b5;background:white;padding:8px;font-size:7px
-}
-.care-card-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:9px}
-.care-card-actions>*{
-  border:1px solid #9da2a6;background:#f4f4f4;text-align:center;
-  padding:7px;font-size:7px;font-style:normal
-}
-.care-card-actions b{background:#e3e5e7}
-
+.care-card-mini,
 .care-app{
-  position:relative;z-index:1;width:100%;max-width:990px;
-  background:#e7e8ea;color:#111;border:1px solid #8f9397;
-  border-radius:10px;overflow:hidden;box-shadow:0 22px 55px rgba(0,0,0,.4);
-  font-family:Arial,sans-serif
+  position:relative;z-index:1;color:#1b2430;background:#eef1f4;border:1px solid #b9c4cf;
+  box-shadow:0 18px 45px rgba(0,0,0,.34);font-family:Inter,Segoe UI,Arial,sans-serif
 }
+.care-card-mini{width:100%;max-width:500px;border-radius:14px;overflow:hidden}
+.care-card-titlebar,
 .care-window-bar{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:12px 16px;background:#f2f2f3;border-bottom:1px solid #a9adb0
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:10px;background:#f7f9fb;border-bottom:1px solid #cfd8e1;padding:12px 14px
 }
-.care-window-bar strong{display:block;font-size:14px}
-.care-window-bar small{display:block;font-size:8px;color:#656a6e;margin-top:3px}
-.care-window-bar>span{font-size:13px;letter-spacing:.35em}
-.care-form{padding:16px}
-.care-section{border-bottom:1px solid #b8bbbe;padding:0 0 15px;margin-bottom:14px}
-.care-section h4,.care-list-box h4{margin:0 0 12px;font-size:12px;color:#111;text-align:left}
-.care-fields{display:grid;gap:14px}
-.top-fields{grid-template-columns:.7fr 1.4fr .9fr}
-.care-fields label,.availability-grid label{
-  display:grid;grid-template-columns:110px 1fr;align-items:center;gap:8px;
-  font-size:9px
+.care-card-titlebar b,
+.care-window-bar strong{display:block;font-size:15px;line-height:1.2;color:#172b3c}
+.care-card-titlebar small,
+.care-window-bar small{display:block;font-size:11px;color:#607489;margin-top:4px}
+.care-card-titlebar>span,
+.care-window-bar>span{font-size:12px;letter-spacing:.3em;color:#70818f}
+.care-card-panel{padding:14px}
+.care-grid.three,
+.care-row.three{display:grid;grid-template-columns:.8fr 1.25fr .7fr;gap:10px}
+.fake-field{
+  background:#fff;border:1px solid #cbd5df;border-radius:10px;padding:9px 10px;
+  min-height:54px;display:flex;flex-direction:column;justify-content:center
 }
-.care-fields input,.care-fields select,.availability-grid input,.availability-grid select{
-  width:100%;box-sizing:border-box;border:1px solid #8e9397;
-  background:#fff;padding:7px 8px;font-size:9px;color:#222
+.fake-field label{font-size:10px;font-weight:600;color:#5b7084;margin-bottom:5px}
+.fake-field span{font-size:13px;color:#162634}
+.care-chip-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.care-chip-line b{font-size:11px;color:#52687a}
+.chip{
+  display:inline-flex;align-items:center;border:1px solid #ccd6e0;background:#fff;
+  border-radius:999px;padding:6px 10px;font-size:11px;color:#455d71
 }
-.care-check-row,.care-status-row,.care-location-row{
-  display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:9px
+.chip.active{background:#eaf5ee;border-color:#bed7c4;color:#2f6b3c}
+.care-split{display:grid;grid-template-columns:1.2fr .8fr;gap:10px;margin-top:12px}
+.care-split.bottom{grid-template-columns:1fr 1fr}
+.mini-box{
+  background:#fff;border:1px solid #cbd5df;border-radius:12px;padding:12px
 }
-.care-check-row b,.care-status-row b,.care-location-row b{min-width:85px}
-.care-check-row input,.care-status-row input,.case-options input,.care-location-row input{
-  accent-color:#555
+.mini-box.large{padding:14px}
+.mini-box strong{display:block;font-size:12px;color:#1b3448;margin-bottom:10px}
+.mini-box .subhead{margin-top:16px}
+.mini-days,
+.mini-tags,
+.availability-table{display:flex;flex-wrap:wrap;gap:8px}
+.mini-days span,
+.mini-tags span,
+.availability-table div{
+  border:1px solid #d7e0e8;border-radius:10px;background:#f7fafc;
+  padding:7px 9px;font-size:11px;color:#41586a
 }
-.care-preference-grid{display:grid;grid-template-columns:1.45fr .55fr;gap:24px;margin-top:13px}
-.availability-grid{
-  display:grid;grid-template-columns:1fr 1fr;column-gap:20px;row-gap:8px
+.mini-days em,
+.availability-table em{
+  font-style:normal;margin-left:6px;color:#c0762c;font-weight:600
 }
-.availability-grid label{grid-template-columns:90px 1fr}
-.availability-grid .notes-field{grid-column:auto}
-.case-options{
-  border-left:1px solid #b6b9bc;padding-left:20px;display:flex;flex-direction:column;
-  gap:10px;font-size:9px
+.mini-days em.ok,
+.availability-table em.ok{color:#2f7a49}
+.mini-table{display:grid;gap:7px}
+.mini-table div{
+  display:grid;grid-template-columns:.8fr 1.2fr .8fr;gap:8px;
+  border-bottom:1px solid #e4e9ef;padding:6px 0;font-size:11px;color:#435a6c
 }
-.case-options b{margin-bottom:2px}
-.care-results-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.care-list-box{background:#f6f6f6;border:1px solid #a9adb0;padding:12px;min-height:150px}
-.care-list-head,.care-list-row{
-  display:grid;grid-template-columns:.7fr 1.4fr 1fr;gap:8px;
-  align-items:center;padding:7px 4px;border-bottom:1px solid #d0d2d4;font-size:8px
+.mini-table div:last-child{border-bottom:0}
+.mini-table .head{font-weight:700;color:#20384d}
+.care-card-actions{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px
 }
-.care-list-head{font-weight:bold;color:#4b4f52}
-.care-list-row em{
-  font-style:normal;background:#ece2d6;padding:4px 6px;border-radius:8px;text-align:center
+.care-card-actions span{
+  background:#0d2944;color:#fff;border-radius:10px;padding:9px 8px;text-align:center;
+  font-size:11px
 }
-.care-list-row em.assigned{background:#dce9dc}
-.care-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:15px}
+.care-app{width:100%;max-width:1040px;border-radius:16px;overflow:hidden}
+.care-body{padding:18px}
+.care-block{margin-bottom:16px}
+.care-block h4{
+  margin:0 0 12px;font-size:16px;color:#162f42
+}
+.care-layout-two{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;margin-top:14px}
+.notes{margin-top:12px}
+.notes span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.care-results-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.mini-table.wide div{grid-template-columns:.7fr 1.3fr 1fr}
+.care-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
 .care-actions button{
-  border:1px solid #8f9498;background:#f1f1f1;color:#111;
-  padding:9px;font-size:9px;box-shadow:inset 0 0 0 1px #fff
+  appearance:none;border:0;background:#0d2944;color:#fff;border-radius:12px;
+  padding:12px 10px;font-size:12px;font-weight:600
 }
-.care-actions button:first-child{background:#dedfe1}
+.care-actions button:nth-child(2),
+.care-actions button:nth-child(3){background:#20486b}
+.care-actions button:last-child{background:#5d6d7c}
 .coded-data-card,.coded-flow-card{display:flex;flex-direction:column}
-.coded-table{border:1px solid var(--line);font-family:var(--mono);font-size:8px}
+.coded-table{
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  font-family:var(--mono);font-size:11px;margin-bottom:14px
+}
 .coded-table>div{display:grid;grid-template-columns:1fr 1fr 1.2fr}
-.coded-table span{padding:8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.coded-table span{padding:10px 11px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.coded-table span:last-child{border-right:0}
+.coded-table>div:last-child span{border-bottom:0}
 .coded-table-head{background:rgba(255,255,255,.06);color:var(--accent);font-weight:600}
-.coded-flow{display:flex;align-items:center;justify-content:center;gap:12px;min-height:145px;flex-wrap:wrap}
+.coded-flow{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  min-height:120px;flex-wrap:wrap;margin-bottom:16px
+}
 .coded-flow span{
   border:1px solid var(--line);background:rgba(255,255,255,.04);
-  padding:12px;border-radius:8px;font-family:var(--mono);font-size:8px
+  padding:12px;border-radius:10px;font-family:var(--mono);font-size:11px
 }
 .coded-flow b{color:var(--accent)}
-@media(max-width:760px){
-  .top-fields,.care-preference-grid,.care-results-grid{grid-template-columns:1fr}
-  .availability-grid{grid-template-columns:1fr}
-  .care-fields label,.availability-grid label{grid-template-columns:1fr}
-  .case-options{border-left:0;border-top:1px solid #b6b9bc;padding:15px 0 0}
-  .care-actions{grid-template-columns:1fr 1fr}
+@media(max-width:980px){
+  .care-grid.three,.care-row.three,.care-layout-two,.care-results-grid,.care-split,.care-split.bottom{
+    grid-template-columns:1fr
+  }
+}
+@media(max-width:680px){
+  .care-card-actions,.care-actions{grid-template-columns:1fr 1fr}
+  .mini-table div,.mini-table.wide div{grid-template-columns:1fr 1.2fr 1fr}
 }

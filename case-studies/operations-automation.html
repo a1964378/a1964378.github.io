@@ -49,89 +49,90 @@
   <div class="care-window-bar">
     <div>
       <strong>Caregiver Operations Management System</strong>
-      <small>Excel VBA operational prototype · coded recreation</small>
+      <small>Operational prototype inspired by the original Excel VBA workflow</small>
     </div>
     <span>— □ ×</span>
   </div>
 
-  <div class="care-form">
-    <div class="care-section care-info">
+  <div class="care-body">
+    <section class="care-block">
       <h4>Caregiver Information</h4>
-      <div class="care-fields top-fields">
-        <label>Caregiver ID<input value="4321" readonly></label>
-        <label>Full Name<input value="John Smith" readonly></label>
-        <label>Caregiver Gender<select><option>Male</option></select></label>
+      <div class="care-grid three">
+        <div class="fake-field"><label>Caregiver ID</label><span>4321</span></div>
+        <div class="fake-field"><label>Full Name</label><span>John Smith</span></div>
+        <div class="fake-field"><label>Caregiver Gender</label><span>Male</span></div>
       </div>
-      <div class="care-check-row">
+
+      <div class="care-chip-line">
         <b>Language</b>
-        <label><input type="checkbox" checked disabled> English</label>
-        <label><input type="checkbox" disabled> Spanish</label>
-        <label><input type="checkbox" disabled> Other</label>
+        <span class="chip active">English</span>
+        <span class="chip">Spanish</span>
+        <span class="chip">Other</span>
       </div>
-    </div>
+    </section>
 
-    <div class="care-section">
+    <section class="care-block">
       <h4>Preferences & Availability</h4>
-      <div class="care-status-row">
+      <div class="care-chip-line">
         <b>Status</b>
-        <label><input type="checkbox" checked disabled> Pending Placement</label>
-        <label><input type="checkbox" disabled> Assigned</label>
+        <span class="chip active">Pending Placement</span>
+        <span class="chip">Assigned</span>
       </div>
 
-      <div class="care-preference-grid">
-        <div class="availability-grid">
-          <label>Monday<select><option>Pending Placement</option></select></label>
-          <label>Saturday<select><option>Pending Placement</option></select></label>
-          <label>Tuesday<select><option>Pending Placement</option></select></label>
-          <label>Sunday<select><option>Pending Placement</option></select></label>
-          <label>Wednesday<select><option>Assigned</option></select></label>
-          <label>Preferred Gender<select><option>Female</option></select></label>
-          <label>Thursday<select><option>Pending Placement</option></select></label>
-          <label class="notes-field">Notes<input value="Prefers overnight shifts" readonly></label>
-          <label>Friday<select><option>Assigned</option></select></label>
+      <div class="care-layout-two">
+        <div class="mini-box large">
+          <strong>Availability</strong>
+          <div class="availability-table">
+            <div><span>Monday</span><em>Pending Placement</em></div>
+            <div><span>Tuesday</span><em>Pending Placement</em></div>
+            <div><span>Wednesday</span><em class="ok">Assigned</em></div>
+            <div><span>Thursday</span><em>Pending Placement</em></div>
+            <div><span>Friday</span><em class="ok">Assigned</em></div>
+            <div><span>Saturday</span><em>Pending Placement</em></div>
+            <div><span>Sunday</span><em>Pending Placement</em></div>
+            <div><span>Preferred Gender</span><em>Female</em></div>
+          </div>
+          <div class="fake-field notes"><label>Notes</label><span>Prefers overnight shifts</span></div>
         </div>
 
-        <div class="case-options">
-          <b>Case Preferences</b>
-          <label><input type="checkbox" checked disabled> Bedbound</label>
-          <label><input type="checkbox" checked disabled> Children</label>
-          <label><input type="checkbox" disabled> Smokers</label>
-          <label><input type="checkbox" checked disabled> Pets</label>
-          <label><input type="checkbox" disabled> Living Arrangement</label>
+        <div class="mini-box large">
+          <strong>Case Preferences</strong>
+          <div class="mini-tags stack">
+            <span>Bedbound</span><span>Children</span><span>Pets</span>
+          </div>
+          <strong class="subhead">Location</strong>
+          <div class="mini-tags stack">
+            <span>Brooklyn</span><span>Manhattan</span><span>Queens</span>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="care-location-row">
-        <b>Location</b>
-        <label><input type="checkbox" checked disabled> Brooklyn</label>
-        <label><input type="checkbox" disabled> Bronx</label>
-        <label><input type="checkbox" checked disabled> Manhattan</label>
-        <label><input type="checkbox" checked disabled> Queens</label>
-        <label><input type="checkbox" disabled> Long Island</label>
+    <section class="care-results-grid">
+      <div class="mini-box">
+        <strong>Caregiver Results</strong>
+        <div class="mini-table wide">
+          <div class="head"><span>ID</span><span>Name</span><span>Status</span></div>
+          <div><span>4321</span><span>John Smith</span><span>Pending</span></div>
+          <div><span>1234</span><span>Juan Antonio</span><span>Assigned</span></div>
+          <div><span>2530</span><span>Ruben Marcos</span><span>Pending</span></div>
+        </div>
       </div>
-    </div>
-
-    <div class="care-results-grid">
-      <div class="care-list-box">
-        <h4>Caregiver Results</h4>
-        <div class="care-list-head"><span>ID</span><span>Name</span><span>Status</span></div>
-        <div class="care-list-row"><span>4321</span><span>John Smith</span><em>Pending</em></div>
-        <div class="care-list-row"><span>1234</span><span>Juan Antonio</span><em class="assigned">Assigned</em></div>
-        <div class="care-list-row"><span>2530</span><span>Ruben Marcos</span><em>Pending</em></div>
+      <div class="mini-box">
+        <strong>Incident History</strong>
+        <div class="mini-table wide">
+          <div class="head"><span>Type</span><span>Date</span><span>Note</span></div>
+          <div><span>NCNS</span><span>Jul 8</span><span>No call</span></div>
+          <div><span>Late</span><span>Jun 7</span><span>45 min</span></div>
+          <div><span>Call Out</span><span>May 24</span><span>Emergency</span></div>
+        </div>
       </div>
-      <div class="care-list-box">
-        <h4>Incident History</h4>
-        <div class="care-list-head"><span>Type</span><span>Date</span><span>Note</span></div>
-        <div class="care-list-row"><span>NCNS</span><span>Jul 8</span><span>No call</span></div>
-        <div class="care-list-row"><span>Late</span><span>Jun 7</span><span>45 min</span></div>
-        <div class="care-list-row"><span>Call Out</span><span>May 24</span><span>Emergency</span></div>
-      </div>
-    </div>
+    </section>
 
     <div class="care-actions">
       <button>Search</button>
-      <button>Save Record</button>
-      <button>Update Record</button>
+      <button>Save Caregiver</button>
+      <button>Update Caregiver</button>
       <button>Clear Form</button>
     </div>
   </div>
@@ -201,6 +202,7 @@
         <h2 data-i18n="incidents.title">Consulta de incidentes</h2>
         <p data-i18n="incidents.p">El historial usa una estructura simple —Caregiver ID, tipo y fecha— para que la interfaz pueda mostrar los incidentes asociados al cuidador seleccionado. Los datos de demostración incluyen NCNS, Late y Call Out.</p>
         
+
 <div class="evidence-grid">
   <div class="evidence-card coded-data-card">
     <div class="coded-table">
