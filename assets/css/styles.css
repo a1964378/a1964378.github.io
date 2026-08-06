@@ -529,3 +529,11 @@ footer{padding:34px 0 44px;border-top:1px solid var(--line);margin-top:90px;colo
   .project-demo-shell .demo-kpis{grid-template-columns:repeat(2,1fr)}
   .report-tab{width:100%;text-align:left}
 }
+
+
+/* Case 01: interactive dashboard replaces the former static cover */
+.case-demo-block{padding:0 0 8px}
+.case-demo-block .demo-shell{width:100%}
+.case-demo-glossary{margin-top:15px}
+.case-demo-glossary strong{display:block;margin-bottom:7px;font-family:var(--display);font-size:1rem}
+.case-demo-glossary p{margin:0;color:var(--muted);font-size:.94rem;line-height:1.65}
