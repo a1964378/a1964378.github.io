@@ -107,8 +107,27 @@
             <a class="btn small ghost" href="case-studies/financial-dashboard.html"><span data-i18n="project.1.cta">Ver caso de estudio</span><span class="arrow">→</span></a>
             <div class="project-stat"><b>20+</b><span data-i18n="project.1.stat">vistas dentro de una solución ejecutiva</span></div>
           </div>
-          <div class="project-visual">
-            <div class="mini-report"><div class="mini-top"><span>FINANCIAL PERFORMANCE</span><span class="accent">YTD</span></div><div class="mini-kpis"><div class="mini-kpi"><small>Sales</small><b>$8.42B</b></div><div class="mini-kpi"><small>Net Sales</small><b>$4.77B</b></div><div class="mini-kpi"><small>AC%</small><b>28.1%</b></div></div><div class="mini-chart"><svg viewBox="0 0 400 110"><path d="M0 95L55 84L105 89L155 65L205 72L255 46L305 53L355 28L400 14" fill="none" stroke="#f0b429" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M0 95L55 84L105 89L155 65L205 72L255 46L305 53L355 28L400 14L400 110L0 110Z" fill="rgba(240,180,41,.12)"/></svg></div></div>
+          <div class="project-visual project-live-demo">
+            <div class="demo-shell project-demo-shell">
+              <div class="demo-toolbar">
+                <h3 data-i18n="project.1.demo.report">Global Account Performance</h3>
+                <div class="demo-tabs" id="region-tabs" aria-label="Region"></div>
+              </div>
+              <div class="demo-main">
+                <div class="demo-kpis" id="demo-kpis"></div>
+                <div class="demo-grid">
+                  <div class="demo-panel">
+                    <h4 data-i18n="project.1.demo.accounts">Top accounts by GSRV</h4>
+                    <div id="account-ranking"></div>
+                  </div>
+                  <div class="demo-panel">
+                    <h4 data-i18n="project.1.demo.channels">Channel contribution</h4>
+                    <div class="channel-bars" id="channel-bars"></div>
+                  </div>
+                </div>
+                <div class="demo-note" data-i18n="project.1.demo.note">Datos ficticios. Ninguna cifra proviene de un cliente real.</div>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -238,10 +257,63 @@
 
   <section class="section" id="demo">
     <div class="wrap">
-      <div class="section-head reveal"><div class="section-title-wrap"><div class="section-kicker" data-i18n="demo.kicker">Demo interactiva</div><h2 data-i18n="demo.title">Explora una recreación del dashboard</h2><p class="section-sub" data-i18n="demo.sub">Los datos son sintéticos. Cambia de región para ver cómo varían los KPIs y la composición comercial.</p></div></div>
-      <div class="demo-shell reveal">
-        <div class="demo-toolbar"><h3 data-i18n="demo.report">Global Account Performance</h3><div class="demo-tabs" id="region-tabs" aria-label="Región"></div></div>
-        <div class="demo-main"><div class="demo-kpis" id="demo-kpis"></div><div class="demo-grid"><div class="demo-panel"><h4>Top accounts by GSRV</h4><div id="account-ranking"></div></div><div class="demo-panel"><h4>Channel contribution</h4><div class="channel-bars" id="channel-bars"></div></div></div><div class="demo-note" data-i18n="demo.note">Datos ficticios. Ninguna cifra proviene de un cliente real.</div></div>
+      <div class="section-head reveal">
+        <div class="section-title-wrap">
+          <div class="section-kicker" data-i18n="demo.kicker">Muestra de Power BI</div>
+          <h2 data-i18n="demo.title">Explora un reporte construido en Power BI</h2>
+          <p class="section-sub" data-i18n="demo.sub">Usa las pestañas para recorrer las tres páginas de un reporte comercial creado con datos completamente sintéticos.</p>
+        </div>
+      </div>
+
+      <div class="report-showcase reveal">
+        <div class="report-tabs" role="tablist" aria-label="Power BI report pages">
+          <button class="report-tab" type="button" role="tab" id="tab-executive" aria-controls="panel-executive" aria-selected="true" data-report-tab="executive" data-i18n="demo.tab.executive">Executive Overview</button>
+          <button class="report-tab" type="button" role="tab" id="tab-product" aria-controls="panel-product" aria-selected="false" data-report-tab="product" data-i18n="demo.tab.product">Product Analysis</button>
+          <button class="report-tab" type="button" role="tab" id="tab-sales" aria-controls="panel-sales" aria-selected="false" data-report-tab="sales" data-i18n="demo.tab.sales">Sales Team Performance</button>
+        </div>
+
+        <div class="report-stage">
+          <figure class="report-panel" id="panel-executive" role="tabpanel" aria-labelledby="tab-executive" data-report-panel="executive">
+            <div class="report-image-frame">
+              <img src="executive-overview.png" alt="Executive Overview page of a synthetic commercial Power BI report" loading="lazy">
+            </div>
+            <figcaption class="report-insight">
+              <div class="report-insight-label" data-i18n="demo.insight.label">Análisis de la página</div>
+              <div>
+                <h3 data-i18n="demo.executive.title">Resumen ejecutivo</h3>
+                <p data-i18n="demo.executive.text">El reporte consolida $4.05M en ingresos, 60 transacciones, $805.7K de utilidad bruta y un margen de 19.9%. Herrera lidera el desempeño regional y la tendencia mensual permite identificar picos, caídas y recuperación durante el año.</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="report-panel" id="panel-product" role="tabpanel" aria-labelledby="tab-product" data-report-panel="product" hidden>
+            <div class="report-image-frame">
+              <img src="product-analysis.png" alt="Product Analysis page of a synthetic commercial Power BI report" loading="lazy">
+            </div>
+            <figcaption class="report-insight">
+              <div class="report-insight-label" data-i18n="demo.insight.label">Análisis de la página</div>
+              <div>
+                <h3 data-i18n="demo.product.title">Rentabilidad por producto</h3>
+                <p data-i18n="demo.product.text">Hyundai Tucson genera $1.12M y concentra 27.7% de los ingresos, además de aportar la mayor utilidad bruta. Los márgenes se mantienen cerca de 20% entre productos, por lo que el volumen es el principal diferenciador de rentabilidad.</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="report-panel" id="panel-sales" role="tabpanel" aria-labelledby="tab-sales" data-report-panel="sales" hidden>
+            <div class="report-image-frame">
+              <img src="sales-team-performance.png" alt="Sales Team Performance page of a synthetic commercial Power BI report" loading="lazy">
+            </div>
+            <figcaption class="report-insight">
+              <div class="report-insight-label" data-i18n="demo.insight.label">Análisis de la página</div>
+              <div>
+                <h3 data-i18n="demo.sales.title">Desempeño del equipo comercial</h3>
+                <p data-i18n="demo.sales.text">Ana Rodríguez y Sofía Castillo lideran los ingresos con resultados cercanos a $1.16M. Sofía alcanza un nivel similar con menos transacciones, mientras Miguel Ureña registra el ticket promedio más alto, pero menor volumen total.</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="report-showcase-note" data-i18n="demo.note">Vista estática de un reporte desarrollado en Power BI con datos sintéticos. No contiene información empresarial ni confidencial.</div>
       </div>
     </div>
   </section>
